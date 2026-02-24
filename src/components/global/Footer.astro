@@ -1,0 +1,23 @@
+---
+import { socialLinks } from '../../data/social-links';
+---
+<footer class="border-t border-white/5 py-12">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-6">
+      {socialLinks.map((link) => (
+        <a
+          href={link.url}
+          target={link.platform !== 'Email' ? '_blank' : undefined}
+          rel={link.platform !== 'Email' ? 'noopener noreferrer' : undefined}
+          class="text-text-muted hover:text-white transition-colors"
+          aria-label={link.platform}
+        >
+          <Fragment set:html={link.icon} />
+        </a>
+      ))}
+    </div>
+    <p class="text-sm text-text-muted">
+      &copy; {new Date().getFullYear()} Polished Racing Ltd. All rights reserved.
+    </p>
+  </div>
+</footer>

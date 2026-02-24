@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+---
+<BaseLayout title="404 — Page Not Found | Polished Racing">
+  <section class="min-h-screen flex items-center justify-center">
+    <div class="text-center px-6">
+      <p class="text-xs font-medium uppercase tracking-[0.3em] text-accent-red mb-4">Error 404</p>
+      <h1 class="font-display text-display-xl uppercase text-white mb-4">Off<br />Track</h1>
+      <p class="text-lg text-text-secondary max-w-md mx-auto mb-10">
+        Looks like you've taken a wrong line. This page doesn't exist — but the rest of the site does.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/" variant="primary" size="lg">
+          Back to Home
+        </Button>
+        <Button href="/contact" variant="secondary" size="lg">
+          Contact Pete
+        </Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

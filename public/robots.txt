@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://polishedracing.co.uk/sitemap-index.xml

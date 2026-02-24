@@ -1,0 +1,108 @@
+---
+import { getCollection } from 'astro:content';
+
+const highlights = (await getCollection('highlights')).sort((a, b) => a.data.order - b.data.order);
+---
+<section id="highlights" class="relative">
+  {highlights.map((highlight, index) => (
+    <div class="highlight-section min-h-screen flex items-center relative overflow-hidden py-20 md:py-0" data-index={index}>
+      <!-- Background gradient effect -->
+      <div class="absolute inset-0 z-0">
+        <div class={`absolute inset-0 opacity-10 ${index % 2 === 0 ? 'bg-gradient-to-br from-accent-red/20 to-transparent' : 'bg-gradient-to-bl from-accent-orange/20 to-transparent'}`}></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+        <div class={`grid md:grid-cols-2 gap-12 md:gap-20 items-center ${index % 2 === 1 ? 'md:grid-flow-dense' : ''}`}>
+          <!-- Text Content -->
+          <div class={`highlight-text ${index % 2 === 1 ? 'md:col-start-2' : ''}`}>
+            <span class="text-xs font-medium uppercase tracking-[0.3em] text-accent-red mb-4 block">
+              {highlight.data.year}
+            </span>
+            <h2 class="font-display text-display-md uppercase text-white mb-2">
+              {highlight.data.title}
+            </h2>
+            <p class="text-lg text-accent-orange font-medium mb-6">
+              {highlight.data.subtitle}
+            </p>
+            <p class="text-text-secondary leading-relaxed mb-8">
+              {highlight.data.description}
+            </p>
+            {highlight.data.stats && (
+              <div class="flex flex-wrap gap-8">
+                {highlight.data.stats.map((stat) => (
+                  <div>
+                    <div class="font-display text-3xl text-white">{stat.value}</div>
+                    <div class="text-xs uppercase tracking-widest text-text-muted mt-1">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <!-- Image Placeholder -->
+          <div class={`highlight-image relative aspect-[4/3] bg-bg-raised rounded-lg overflow-hidden ${index % 2 === 1 ? 'md:col-start-1' : ''}`}>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center">
+                <div class="w-16 h-16 mx-auto mb-4 border border-white/10 rounded-full flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-text-muted">
+                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+                  </svg>
+                </div>
+                <p class="text-xs text-text-muted uppercase tracking-widest">Photo needed</p>
+              </div>
+            </div>
+            <div class="absolute inset-0 border border-white/5 rounded-lg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const sections = document.querySelectorAll('.highlight-section');
+
+  sections.forEach((section) => {
+    const text = section.querySelector('.highlight-text');
+    const image = section.querySelector('.highlight-image');
+
+    if (text) {
+      gsap.fromTo(text,
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 70%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
+    }
+
+    if (image) {
+      gsap.fromTo(image,
+        { opacity: 0, scale: 1.1 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 70%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
+    }
+  });
+</script>

@@ -1,0 +1,19 @@
+---
+interface Props {
+  label?: string;
+  align?: 'left' | 'center';
+  class?: string;
+}
+
+const { label, align = 'left', class: className = '' } = Astro.props;
+
+const alignClasses = align === 'center' ? 'text-center mx-auto' : '';
+---
+<div class={`max-w-3xl mb-12 md:mb-16 ${alignClasses} ${className}`}>
+  {label && (
+    <span class="text-xs font-medium uppercase tracking-[0.3em] text-accent-red mb-4 block">
+      {label}
+    </span>
+  )}
+  <slot />
+</div>

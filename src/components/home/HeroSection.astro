@@ -1,0 +1,89 @@
+---
+
+---
+<section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+  <!-- Video Background -->
+  <div class="absolute inset-0 z-0">
+    <video
+      id="hero-video"
+      class="w-full h-full object-cover"
+      autoplay
+      loop
+      muted
+      playsinline
+      poster="/images/hero-fallback.jpg"
+    >
+      <source src="/videos/hero.webm" type="video/webm" />
+      <source src="/videos/hero.mp4" type="video/mp4" />
+    </video>
+    <!-- Fallback for when video doesn't exist yet -->
+    <div id="hero-fallback" class="absolute inset-0 bg-gradient-to-br from-bg via-bg-raised to-bg">
+      <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-red/10 rounded-full blur-[128px]"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-orange/10 rounded-full blur-[128px]"></div>
+      </div>
+    </div>
+    <div class="absolute inset-0 bg-bg/60"></div>
+    <div class="absolute inset-0 gradient-bottom"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center px-6">
+    <p id="hero-subtitle" class="text-xs md:text-sm font-medium uppercase tracking-[0.4em] text-accent-red mb-6 opacity-0">
+      World Cup Mechanic
+    </p>
+    <h1 id="hero-title" class="font-display text-display-xl uppercase text-white opacity-0">
+      Pete<br />Michaliszyn
+    </h1>
+    <p id="hero-tagline" class="mt-6 text-base md:text-lg text-text-secondary max-w-xl mx-auto opacity-0">
+      Gee Atherton's personal wrencher. 7+ years at the highest level of downhill racing.
+    </p>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div id="hero-scroll" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-0">
+    <span class="text-xs uppercase tracking-[0.3em] text-text-muted">Scroll</span>
+    <div class="w-px h-12 bg-gradient-to-b from-text-muted to-transparent animate-pulse"></div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // Hero entrance animation
+  const tl = gsap.timeline({ delay: 0.3 });
+
+  tl.to('#hero-subtitle', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 0)
+    .fromTo('#hero-title', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, 0.2)
+    .to('#hero-tagline', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 0.5)
+    .to('#hero-scroll', { opacity: 1, duration: 0.6, ease: 'power3.out' }, 0.8);
+
+  // Video fallback handling
+  const video = document.getElementById('hero-video') as HTMLVideoElement;
+  const fallback = document.getElementById('hero-fallback');
+
+  if (video) {
+    video.addEventListener('error', () => {
+      video.style.display = 'none';
+      if (fallback) fallback.style.display = 'block';
+    });
+
+    // Check if video can play
+    video.addEventListener('canplay', () => {
+      if (fallback) fallback.style.display = 'none';
+    });
+
+    // On mobile or slow connection, show fallback
+    const connection = (navigator as any).connection;
+    if (connection && (connection.saveData || connection.effectiveType === '2g' || connection.effectiveType === 'slow-2g')) {
+      video.style.display = 'none';
+      if (fallback) fallback.style.display = 'block';
+    }
+
+    // Mobile: prefer poster image
+    if (window.innerWidth < 768) {
+      video.removeAttribute('autoplay');
+      video.load();
+    }
+  }
+</script>

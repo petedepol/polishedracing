@@ -1,0 +1,42 @@
+---
+import Button from '../ui/Button.astro';
+import { socialLinks } from '../../data/social-links';
+---
+<section class="py-20 md:py-32 relative overflow-hidden">
+  <!-- Background glow -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-red/5 rounded-full blur-[128px]"></div>
+  </div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+    <h2 class="font-display text-display-lg uppercase text-white mb-6">
+      Let's Build<br />Something
+    </h2>
+    <p class="text-lg text-text-secondary max-w-xl mx-auto mb-10">
+      Looking for a world-class mechanic, technical consultant, or just want to talk bikes? I'm always open to new opportunities.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+      <Button href="/contact" variant="primary" size="lg">
+        Get in Touch
+      </Button>
+      <Button href="/about" variant="secondary" size="lg">
+        My Story
+      </Button>
+    </div>
+
+    <div class="flex items-center justify-center gap-6">
+      {socialLinks.map((link) => (
+        <a
+          href={link.url}
+          target={link.platform !== 'Email' ? '_blank' : undefined}
+          rel={link.platform !== 'Email' ? 'noopener noreferrer' : undefined}
+          class="text-text-muted hover:text-accent-red transition-colors"
+          aria-label={link.platform}
+        >
+          <Fragment set:html={link.icon} />
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

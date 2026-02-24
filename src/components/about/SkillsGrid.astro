@@ -1,0 +1,35 @@
+---
+const skills = [
+  {
+    category: 'Race Preparation',
+    items: ['Full bike builds', 'Suspension setup & tuning', 'Wheel building & truing', 'Frame preparation', 'Brake bleeding & setup'],
+  },
+  {
+    category: 'Technical Expertise',
+    items: ['Downhill race mechanics', 'Enduro & trail builds', 'Carbon fibre repair', 'Titanium frame work', '3D-printed component assembly'],
+  },
+  {
+    category: 'Suspension & Tuning',
+    items: ['Fox suspension servicing', 'RockShox servicing', 'Custom valving', 'Rider-specific setup', 'Data-driven tuning'],
+  },
+  {
+    category: 'Brands & Systems',
+    items: ['Shimano drivetrain & brakes', 'SRAM/RockShox ecosystem', 'Fox Racing Shox', 'DT Swiss wheels', 'Trek & Atherton Bikes frames'],
+  },
+];
+---
+<div class="grid md:grid-cols-2 gap-8">
+  {skills.map((group) => (
+    <div class="p-6 bg-bg-raised/50 border border-white/5 rounded-lg">
+      <h3 class="font-display text-xl uppercase text-white mb-4">{group.category}</h3>
+      <ul class="space-y-2">
+        {group.items.map((item) => (
+          <li class="flex items-center gap-3 text-text-secondary">
+            <span class="w-1.5 h-1.5 rounded-full bg-accent-red flex-shrink-0"></span>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</div>

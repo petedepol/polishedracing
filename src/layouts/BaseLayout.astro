@@ -1,0 +1,88 @@
+---
+import '../styles/global.css';
+import Header from '../components/global/Header.astro';
+import Footer from '../components/global/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = "World Cup downhill mountain bike mechanic. Gee Atherton's personal wrencher for 7+ years.",
+  ogImage = '/images/og-image.jpg'
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={Astro.url.href} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={Astro.url.href} />
+
+    <title>{title}</title>
+
+    <!-- JSON-LD Person Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Pete Michaliszyn",
+      "jobTitle": "World Cup Mechanic",
+      "url": "https://polishedracing.co.uk",
+      "sameAs": [
+        "https://www.instagram.com/polishedracing",
+        "https://www.linkedin.com/in/petemichaliszyn"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Polished Racing"
+      }
+    })} />
+  </head>
+  <body class="bg-bg text-text-primary font-body">
+    <div class="film-grain" aria-hidden="true"></div>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      import Lenis from 'lenis';
+
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        touchMultiplier: 2,
+      });
+
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // Make lenis available globally for GSAP integration
+      (window as any).__lenis = lenis;
+    </script>
+  </body>
+</html>

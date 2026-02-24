@@ -1,0 +1,120 @@
+---
+
+---
+<div id="spectrum-terminal" class="relative max-w-2xl mx-auto">
+  <!-- CRT Screen -->
+  <div class="relative bg-black border-4 border-gray-700 rounded-lg p-6 md:p-8 overflow-hidden">
+    <!-- Scanline effect -->
+    <div class="absolute inset-0 pointer-events-none opacity-10"
+      style="background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px);">
+    </div>
+
+    <!-- CRT glow -->
+    <div class="absolute inset-0 pointer-events-none rounded-lg"
+      style="box-shadow: inset 0 0 60px rgba(0, 180, 216, 0.1);">
+    </div>
+
+    <!-- Terminal content -->
+    <div class="relative z-10 font-mono text-sm md:text-base">
+      <div class="text-accent-cyan mb-4">
+        <span class="text-white">Sinclair ZX Spectrum 48K</span>
+        <span class="text-text-muted"> — BASIC</span>
+      </div>
+      <div id="terminal-output" class="space-y-1 min-h-[200px]">
+        <div class="text-accent-cyan terminal-cursor">_</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Spectrum branding bar -->
+  <div class="flex h-2 mt-2 rounded-full overflow-hidden">
+    <div class="flex-1 bg-red-500"></div>
+    <div class="flex-1 bg-yellow-400"></div>
+    <div class="flex-1 bg-green-500"></div>
+    <div class="flex-1 bg-cyan-400"></div>
+  </div>
+</div>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const output = document.getElementById('terminal-output');
+  if (!output) throw new Error('Terminal output not found');
+
+  const lines = [
+    { text: '10 PRINT "HELLO FROM BIELAWA"', delay: 0 },
+    { text: '20 GOTO 10', delay: 600 },
+    { text: 'RUN', delay: 400 },
+    { text: '', delay: 300 },
+    { text: 'HELLO FROM BIELAWA', delay: 200, color: 'text-white' },
+    { text: 'HELLO FROM BIELAWA', delay: 100, color: 'text-white' },
+    { text: 'HELLO FROM BIELAWA', delay: 100, color: 'text-white' },
+    { text: 'BREAK — CONT repeats', delay: 400, color: 'text-text-muted' },
+    { text: '', delay: 800 },
+    { text: '> 40 years later...', delay: 0, color: 'text-accent-orange' },
+    { text: '', delay: 600 },
+    { text: '> PRINT "Hello, Claude"', delay: 0, color: 'text-accent-cyan' },
+    { text: 'Hello! How can I help you build something today?', delay: 400, color: 'text-white' },
+  ];
+
+  let hasPlayed = false;
+
+  function typeText(element: HTMLElement, text: string, speed: number = 40): Promise<void> {
+    return new Promise((resolve) => {
+      let i = 0;
+      element.textContent = '';
+      const interval = setInterval(() => {
+        element.textContent += text[i];
+        i++;
+        if (i >= text.length) {
+          clearInterval(interval);
+          resolve();
+        }
+      }, speed);
+    });
+  }
+
+  async function playAnimation() {
+    if (hasPlayed) return;
+    hasPlayed = true;
+
+    output.innerHTML = '';
+
+    for (const line of lines) {
+      await new Promise((r) => setTimeout(r, line.delay));
+      const div = document.createElement('div');
+      div.className = line.color || 'text-accent-cyan';
+      output.appendChild(div);
+
+      if (line.text) {
+        await typeText(div, line.text, line.text.startsWith('>') ? 30 : 40);
+      }
+    }
+
+    // Add blinking cursor at end
+    const cursor = document.createElement('div');
+    cursor.className = 'text-accent-cyan mt-2';
+    cursor.innerHTML = '<span class="animate-pulse">_</span>';
+    output.appendChild(cursor);
+  }
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReducedMotion) {
+    // Show final state immediately
+    output.innerHTML = lines.map(l =>
+      `<div class="${l.color || 'text-accent-cyan'}">${l.text}</div>`
+    ).join('');
+  } else {
+    ScrollTrigger.create({
+      trigger: '#spectrum-terminal',
+      start: 'top 75%',
+      onEnter: playAnimation,
+      once: true,
+    });
+  }
+</script>
