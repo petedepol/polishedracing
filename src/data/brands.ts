@@ -5,6 +5,8 @@ export const brands = [
   { name: 'Fox', slug: 'fox' },
   { name: 'Atherton Racing', slug: 'atherton' },
   { name: 'Atherton Bikes', slug: 'atherton-bikes' },
-  { name: 'Maxxis', slug: 'maxxis' },
   { name: 'SRAM', slug: 'sram' },
+  { name: 'INEOS Grenadiers', slug: 'ineos' },
+  { name: 'Cannondale', slug: 'cannondale' },
+  { name: 'BMC', slug: 'bmc' },
 ] as const;
