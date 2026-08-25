@@ -20,7 +20,7 @@ export default {
         serif: ['Fraunces', 'Georgia', 'serif'],
       },
       fontSize: {
-        'display-xl': ['clamp(4.5rem, 13vw, 13rem)', { lineHeight: '0.88', letterSpacing: '0.01em' }],
+        'display-xl': ['clamp(4rem, 9.5vw, 10rem)', { lineHeight: '0.88', letterSpacing: '0.01em' }],
         'display-lg': ['clamp(3rem, 8vw, 7.5rem)', { lineHeight: '0.92', letterSpacing: '0.01em' }],
         'display-md': ['clamp(2.2rem, 5vw, 4.5rem)', { lineHeight: '0.95', letterSpacing: '0.02em' }],
       },
