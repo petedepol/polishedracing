@@ -1,0 +1,24 @@
+---
+const moments = [
+  { k: '8/8', t: 'Rachel Atherton — the perfect season', d: 'Seven World Cups from seven starts, then the Worlds in Val di Sole. 2016 — my first year as Trek Factory Racing head mechanic.', c: 'text-gold' },
+  { k: '2014', t: 'Gee Atherton — World Champion, Hafjell', d: 'Three seasons of GT Factory Racing preparation landed on one run in Norway.', c: 'text-gold' },
+  { k: '3D-Ti', t: 'Atherton Bikes — printed lugs to the podium', d: 'Development mechanic on the titanium-printed lug frames, from prototype to World Cup podium in a single season.', c: 'text-signal' },
+  { k: 'MSA', t: 'Charlie Aldridge — first elite World Cup win', d: 'XCO and XCC double at Mont-Sainte-Anne, 2025, from a rider I first worked with as a U23 World Champion in 2023.', c: 'text-signal' },
+  { k: 'P1', t: 'Luca Martin — 2026 World Cup overall leader', d: 'The men’s series lead, on bikes prepared by the crew I run at CFR.', c: 'text-signal' },
+  { k: '2007', t: 'Mojo Suspension — the start', d: 'Sole mechanic of a World Cup race programme from the Fort William Worlds, four seasons before the Athertons.', c: 'text-ink' },
+];
+---
+<section class="py-20 bg-carbon-raised border-y border-carbon-line">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <p class="section-no mb-3">[06] MARQUEE MOMENTS</p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-carbon-line hairline mt-6">
+      {moments.map((m, i) => (
+        <article class="bg-carbon-raised p-6 reveal" style={`transition-delay:${i*50}ms`}>
+          <div class={`font-display text-5xl ${m.c}`}>{m.k}</div>
+          <h3 class="font-body text-ink font-semibold mt-3">{m.t}</h3>
+          <p class="font-body text-ink-dim text-sm mt-2">{m.d}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

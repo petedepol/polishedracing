@@ -1,0 +1,24 @@
+---
+const golds = [
+  { year: '2020', venue: 'TOKYO', disc: 'XCO', rider: 'Tom Pidcock', prog: 'PROGRAMME: BRITISH CYCLING', note: 'First British MTB Olympic medal in history.' },
+  { year: '2024', venue: 'PARIS', disc: 'XCO', rider: 'Pauline Ferrand-Prévot', prog: 'PROGRAMME: INEOS GRENADIERS', note: 'A full season built toward one race at home. Delivered.' },
+];
+---
+<section class="relative py-24 bg-black border-y border-carbon-line overflow-hidden">
+  <div class="absolute inset-0 opacity-[.06] pointer-events-none" style="background:radial-gradient(60% 50% at 50% 50%, #E9B949 0%, transparent 70%)"></div>
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <p class="section-no mb-10 reveal">[04] GOLD CUT · THE RAREST FACT IN THE SPORT</p>
+    <div class="grid md:grid-cols-2 gap-px bg-gold/30">
+      {golds.map(g => (
+        <div class="bg-black p-8 md:p-12 reveal">
+          <p class="font-mono text-[12px] tracking-[0.25em] text-gold">{g.year} / {g.venue} / {g.disc}</p>
+          <p class="font-display text-display-lg text-gold mt-4 leading-none">GOLD</p>
+          <p class="font-body text-ink text-xl mt-4">{g.rider}</p>
+          <p class="font-mono text-[11px] tracking-[0.18em] text-ink-dim mt-3">{g.prog}</p>
+          <p class="font-body text-ink-dim mt-4 max-w-sm">{g.note}</p>
+        </div>
+      ))}
+    </div>
+    <p class="font-body text-ink text-lg md:text-2xl mt-10 max-w-2xl reveal">Two Olympic golds. Both on bikes I prepared. Different programmes, different riders, four years apart — same standard.</p>
+  </div>
+</section>

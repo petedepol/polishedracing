@@ -1,0 +1,17 @@
+export const riders = [
+  { name: 'Tom Pidcock', line: 'Olympic champion · Tokyo 2020' },
+  { name: 'Pauline Ferrand-Prévot', line: 'Olympic champion · Paris 2024' },
+  { name: 'Rachel Atherton', line: '4× World Champion under my spanners · the perfect 2016' },
+  { name: 'Gee Atherton', line: 'World Champion 2014 · 24 WC top-5s' },
+  { name: 'Dan Atherton', line: 'Atherton programme 2011–19' },
+  { name: 'Jolanda Neff', line: 'Olympic champion ’21 · CFR 2025–26' },
+  { name: 'Luca Martin', line: '2026 World Cup overall leader' },
+  { name: 'Charlie Aldridge', line: 'U23 World Champion ’23 · first elite WC win ’25' },
+  { name: 'Cole Punchard', line: 'U23 Worlds silver + bronze ’25 · my rider' },
+  { name: 'Mona Mitterwallner', line: 'Marathon World Champion ’23' },
+  { name: 'Henrique Avancini', line: 'CFR 2022' },
+  { name: 'Kade Edwards', line: 'Junior World Champion ’18' },
+  { name: 'Mille Johnset', line: 'Junior Worlds silver ’19' },
+  { name: 'Charlie Hatton', line: 'Trek FR / Atherton Bikes 2018–19' },
+  { name: 'Marc Beaumont', line: 'GT Factory Racing 2012–14' },
+] as const;

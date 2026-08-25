@@ -1,19 +1,33 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroSection from '../components/home/HeroSection.astro';
-import CareerHighlights from '../components/home/CareerHighlights.astro';
-import StatsBar from '../components/home/StatsBar.astro';
-import BrandLogos from '../components/home/BrandLogos.astro';
-import Testimonials from '../components/home/Testimonials.astro';
-import CTASection from '../components/home/CTASection.astro';
+import Hud from '../components/pitwall/Hud.astro';
+import Hero from '../components/pitwall/Hero.astro';
+import Cluster from '../components/pitwall/Cluster.astro';
+import TimingScreen from '../components/pitwall/TimingScreen.astro';
+import GoldCut from '../components/pitwall/GoldCut.astro';
+import CareerFeed from '../components/pitwall/CareerFeed.astro';
+import Moments from '../components/pitwall/Moments.astro';
+import RollCall from '../components/pitwall/RollCall.astro';
+import Craft from '../components/pitwall/Craft.astro';
+import Development from '../components/pitwall/Development.astro';
+import Origin from '../components/pitwall/Origin.astro';
+import Credentials from '../components/pitwall/Credentials.astro';
+import Hire from '../components/pitwall/Hire.astro';
 ---
-<BaseLayout title="Pete Michaliszyn — World Cup Mechanic | Polished Racing">
-  <HeroSection />
-  <div class="section-divider"></div>
-  <CareerHighlights />
-  <StatsBar />
-  <BrandLogos />
-  <Testimonials />
-  <div class="section-divider"></div>
-  <CTASection />
+<BaseLayout>
+  <Hud />
+  <main>
+    <Hero />
+    <Cluster />
+    <TimingScreen />
+    <GoldCut />
+    <CareerFeed />
+    <Moments />
+    <RollCall />
+    <Craft />
+    <Development />
+    <Origin />
+    <Credentials />
+    <Hire />
+  </main>
 </BaseLayout>

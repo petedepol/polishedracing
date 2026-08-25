@@ -1,54 +1,30 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  content: ['./src/**/*.{astro,html,js,ts}'],
   theme: {
     extend: {
       colors: {
-        bg: {
-          DEFAULT: '#0a0a0a',
-          raised: '#141414',
-          elevated: '#1e1e1e',
-        },
-        accent: {
-          red: '#e63946',
-          orange: '#f77f00',
-          cyan: '#00b4d8',
-        },
-        text: {
-          primary: '#ffffff',
-          secondary: '#a0a0a0',
-          muted: '#6b6b6b',
-        },
+        carbon: { DEFAULT: '#0A0B0D', raised: '#121418', line: '#1E2229' },
+        signal: '#C6FF2E',
+        gold: '#E9B949',
+        silver: '#AEB6BF',
+        bronze: '#C08A5A',
+        live: '#33D17A',
+        warn: '#E5703A',
+        ink: { DEFAULT: '#EDEFF2', dim: '#7A828C', faint: '#3A4049' },
       },
       fontFamily: {
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
         display: ['"Bebas Neue"', 'Impact', 'sans-serif'],
         body: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Fraunces', 'Georgia', 'serif'],
       },
       fontSize: {
-        'display-xl': ['clamp(4rem, 12vw, 12rem)', { lineHeight: '0.9', letterSpacing: '0.02em' }],
-        'display-lg': ['clamp(3rem, 8vw, 8rem)', { lineHeight: '0.95', letterSpacing: '0.02em' }],
-        'display-md': ['clamp(2rem, 5vw, 5rem)', { lineHeight: '1', letterSpacing: '0.02em' }],
-        'display-sm': ['clamp(1.5rem, 3vw, 3rem)', { lineHeight: '1.1', letterSpacing: '0.02em' }],
+        'display-xl': ['clamp(4.5rem, 13vw, 13rem)', { lineHeight: '0.88', letterSpacing: '0.01em' }],
+        'display-lg': ['clamp(3rem, 8vw, 7.5rem)', { lineHeight: '0.92', letterSpacing: '0.01em' }],
+        'display-md': ['clamp(2.2rem, 5vw, 4.5rem)', { lineHeight: '0.95', letterSpacing: '0.02em' }],
       },
-      animation: {
-        'scroll-left': 'scroll-left 30s linear infinite',
-        'fade-in': 'fade-in 0.6s ease-out forwards',
-        'slide-up': 'slide-up 0.6s ease-out forwards',
-      },
-      keyframes: {
-        'scroll-left': {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-50%)' },
-        },
-        'fade-in': {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        'slide-up': {
-          '0%': { opacity: '0', transform: 'translateY(30px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-      },
+      transitionTimingFunction: { settle: 'cubic-bezier(0.16, 1, 0.3, 1)' },
     },
   },
   plugins: [],
