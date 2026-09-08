@@ -2,11 +2,13 @@
 import { siteConfig } from '../../data/site-config';
 ---
 <header class="fixed top-0 inset-x-0 z-50 bg-carbon/85 backdrop-blur-xs border-b border-carbon-line">
+  <div class="lap-bar" aria-hidden="true"></div>
   <div class="max-w-7xl mx-auto px-5 md:px-8 h-12 flex items-center justify-between">
     <a href="#top" class="flex items-center gap-3 font-mono text-[12px] tracking-[0.2em] uppercase text-ink">
       <span class="dot-live" aria-hidden="true"></span>P. MICHALISZYN <span class="hidden sm:inline text-ink-faint">// PIT WALL</span>
     </a>
     <nav class="hidden md:flex items-center gap-7" aria-label="Sections">
+      <span id="hud-clock" class="font-mono text-[11px] tracking-[0.15em] text-ink-faint tabular" aria-hidden="true">--:--:-- UTC</span>
       {siteConfig.nav.map(n => <a href={n.href} class="label hover:text-ink transition-colors">{n.label}</a>)}
     </nav>
     <a href="#contact" class="btn-signal py-2! px-4!">[ HIRE ]</a>

@@ -5,7 +5,7 @@ import { career } from '../../data/career';
   <div class="max-w-7xl mx-auto px-5 md:px-8">
     <p class="section-no mb-3">[05] CAREER FEED · DOT TIMELINE · TENURE VISIBLE</p>
     <h2 class="font-display text-display-md text-ink mb-10">DH → XCO → OLYMPIC. TWENTY YEARS IN THE PITS.</h2>
-    <ol class="relative border-l border-carbon-line ml-2">
+    <ol class="timeline border-l border-carbon-line ml-2">
       {career.map((n, i) => (
         <li class="relative pl-8 pb-10 reveal" style={`transition-delay:${i*40}ms`}>
           <span class={`absolute left-[-5px] top-2 w-[9px] h-[9px] ${n.role.includes('HEAD') || n.role.includes('SOLE') ? 'bg-signal' : 'bg-ink-dim'}`} aria-hidden="true"></span>
@@ -17,7 +17,7 @@ import { career } from '../../data/career';
           {n.tenure && <div class="font-mono text-[10px] tracking-[0.18em] text-gold mt-1">{n.tenure}</div>}
           <div class="font-body text-ink-dim mt-2 max-w-3xl">{n.result}</div>
           <div class="font-mono text-[10px] text-ink-faint mt-2">RIDERS · {n.riders}</div>
-          <div class="flex flex-wrap gap-2 mt-3">{n.tags.map(t => <span class="font-mono text-[9px] tracking-[0.15em] text-ink-dim border border-carbon-line px-2 py-1">{t}</span>)}</div>
+          <div class="flex flex-wrap gap-2 mt-3">{n.tags.map(t => <span class="font-mono text-[10px] tracking-[0.15em] text-ink-dim border border-carbon-line px-2 py-1">{t}</span>)}</div>
         </li>
       ))}
     </ol>

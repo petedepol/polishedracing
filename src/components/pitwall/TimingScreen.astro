@@ -1,6 +1,12 @@
 ---
 import { palmares, countingRule } from '../../data/palmares';
 const medalClass: Record<string,string> = { GOLD: 'text-gold', SILVER: 'text-silver', BRONZE: 'text-bronze', WIN: 'text-signal', LEADER: 'text-signal' };
+const kind = (e: string) => /Olympic/.test(e) ? 'olympic' : /World Championships/.test(e) ? 'worlds' : 'wc';
+const disc = (d: string) => d === 'DH' ? 'dh' : 'xc';
+const filters = [
+  { id: 'all', label: 'All' }, { id: 'olympic', label: 'Olympic' }, { id: 'worlds', label: 'Worlds' },
+  { id: 'wc', label: 'World Cup' }, { id: 'dh', label: 'DH' }, { id: 'xc', label: 'XC' },
+];
 ---
 <section id="palmares" class="py-20 scroll-mt-12">
   <div class="max-w-7xl mx-auto px-5 md:px-8">
@@ -9,18 +15,24 @@ const medalClass: Record<string,string> = { GOLD: 'text-gold', SILVER: 'text-sil
         <p class="section-no mb-3">[03] THE PALMARÈS · TIMING SCREEN</p>
         <h2 class="font-display text-display-md text-ink">CAREER FEED — 2011–2026</h2>
       </div>
-      <p class="font-mono text-[11px] tracking-[0.18em] text-ink-dim uppercase flex items-center gap-2"><span class="dot-live"></span>126 TOP FINISHES · LIVE</p>
+      <p class="font-mono text-[11px] tracking-[0.18em] text-ink-dim uppercase flex items-center gap-2"><span class="dot-live"></span><span id="feed-count" class="tabular">{palmares.length}</span> ROWS · 126 TOP FINISHES · LIVE</p>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-2 mb-4" role="group" aria-label="Filter the palmarès" data-filter-group>
+      <span class="label mr-2">Filter</span>
+      {filters.map((f, i) => <button type="button" class="chip" data-filter={f.id} aria-pressed={i === 0 ? 'true' : 'false'}>{f.label}</button>)}
     </div>
 
     <!-- desktop: a real table -->
     <div class="hidden md:block hairline bg-carbon-raised">
       <table class="w-full font-mono text-[12px]">
+        <caption class="sr-only">Career results, ordered by significance. Position, rider, event, discipline, result, year, and my role.</caption>
         <thead class="text-ink-dim uppercase tracking-[0.15em] text-[10px]">
-          <tr class="border-b border-carbon-line"><th class="text-left py-3 px-4 w-14">POS</th><th class="text-left py-3 px-4">RIDER</th><th class="text-left py-3 px-4">EVENT</th><th class="text-left py-3 px-4 w-20">DISC</th><th class="text-left py-3 px-4">RESULT</th><th class="text-left py-3 px-4 w-16">YEAR</th><th class="text-left py-3 px-4">MY ROLE</th></tr>
+          <tr class="border-b border-carbon-line"><th scope="col" class="text-left py-3 px-4 w-14">POS</th><th scope="col" class="text-left py-3 px-4">RIDER</th><th scope="col" class="text-left py-3 px-4">EVENT</th><th scope="col" class="text-left py-3 px-4 w-20">DISC</th><th scope="col" class="text-left py-3 px-4">RESULT</th><th scope="col" class="text-left py-3 px-4 w-16">YEAR</th><th scope="col" class="text-left py-3 px-4">MY ROLE</th></tr>
         </thead>
         <tbody>
           {palmares.map((r, i) => (
-            <tr class="feed-row border-b border-carbon-line hover:bg-carbon hover:shadow-[inset_2px_0_0_#C6FF2E]" style={`transition-delay:${i*45}ms`}>
+            <tr class="feed-row border-b border-carbon-line hover:bg-carbon hover:shadow-[inset_2px_0_0_#C6FF2E]" style={`transition-delay:${i*45}ms`} data-kind={kind(r.event)} data-disc={disc(r.disc)}>
               <td class={`py-3 px-4 font-bold ${medalClass[r.medal]}`}>{r.pos}</td>
               <td class="py-3 px-4 text-ink">{r.rider}</td>
               <td class="py-3 px-4 text-ink-dim">{r.event}</td>
@@ -34,10 +46,10 @@ const medalClass: Record<string,string> = { GOLD: 'text-gold', SILVER: 'text-sil
       </table>
     </div>
 
-    <!-- mobile: stacked cards -->
+    <!-- mobile: stacked rows -->
     <div class="md:hidden space-y-px bg-carbon-line hairline">
       {palmares.map((r, i) => (
-        <div class="feed-row bg-carbon-raised p-4" style={`transition-delay:${i*45}ms`}>
+        <div class="feed-row bg-carbon-raised p-4" style={`transition-delay:${i*45}ms`} data-kind={kind(r.event)} data-disc={disc(r.disc)}>
           <div class="flex items-start justify-between gap-3">
             <div class="font-body text-ink font-semibold">{r.rider}</div>
             <div class={`font-mono text-[11px] font-bold tracking-wide text-right ${medalClass[r.medal]}`}>{r.pos} · {r.result}</div>

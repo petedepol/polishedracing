@@ -2,12 +2,12 @@
 import { careerStats } from '../../data/career-stats';
 const tone: Record<string,string> = { gold: 'text-gold', silver: 'text-silver', signal: 'text-signal', ink: 'text-ink' };
 ---
-<section class="border-y border-carbon-line bg-carbon-raised">
-  <div class="max-w-7xl mx-auto px-5 md:px-8 py-4"><p class="section-no">[02] INSTRUMENT CLUSTER · HEADLINE NUMBERS · VERIFIED</p></div>
+<section id="cluster" class="border-y border-carbon-line bg-carbon-raised">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 py-4"><p class="section-no">[02] INSTRUMENT CLUSTER · HEADLINE NUMBERS · VERIFIED AGAINST UCI / ROOTS &amp; RAIN</p></div>
   <div class="max-w-7xl mx-auto px-5 md:px-8 pb-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-carbon-line">
     {careerStats.map(s => (
-      <div class="bg-carbon-raised p-5 reveal">
-        <div class={`font-mono text-5xl md:text-6xl font-bold tabular-nums count ${tone[s.tone]}`} data-count={s.value}>0</div>
+      <div class="bg-carbon-raised p-5">
+        <number-flow class={`block font-mono text-5xl md:text-6xl font-bold ${tone[s.tone]}`} data-target={s.value} aria-label={`${s.value} ${s.label}`}>{s.value}</number-flow>
         <div class="label mt-3 text-ink">{s.label}</div>
         {s.note && <div class="font-mono text-[10px] text-ink-faint mt-1">{s.note}</div>}
       </div>
