@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../../data/site-config';
+import { palmares } from '../../data/palmares';
 ---
 <section id="top" class="hero relative min-h-svh pt-24 pb-16 overflow-hidden">
   <picture class="hero-photo" aria-hidden="true">
@@ -25,5 +26,5 @@ import { siteConfig } from '../../data/site-config';
 
     <p class="hero-credit lg:col-span-6 lg:self-end lg:justify-self-end font-mono text-[10px] tracking-[0.15em] uppercase text-ink-faint">Leogang · 2018 · Trek Factory Racing pits</p>
   </div>
-  <div class="absolute bottom-6 inset-x-0 text-center section-no hero-scroll">↓ 21 VERIFIED RESULTS</div>
+  <div class="absolute bottom-6 inset-x-0 text-center section-no hero-scroll">↓ {palmares.length} VERIFIED RESULTS</div>
 </section>
