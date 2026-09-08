@@ -1,0 +1,34 @@
+---
+// Career film strip — every frame is a real photo from the team archives, captioned with facts only (year, programme, venue where known).
+const frames = [
+  { src: '/images/photos/era-2011-commencal-900.webp', year: '2011', cap: 'Animal Commencal · first season with the Athertons' },
+  { src: '/images/photos/era-2013-gt-900.webp', year: '2013', cap: 'GT Factory Racing · pit' },
+  { src: '/images/photos/era-2015-gt-900.webp', year: '2015', cap: 'GT Factory Racing · Leogang' },
+  { src: '/images/photos/era-2016-trek-900.webp', year: '2016', cap: 'Trek Factory Racing · Leogang · the perfect season' },
+  { src: '/images/photos/era-2018-trek-fortwilliam-900.webp', year: '2018', cap: 'Trek Factory Racing · Fort William' },
+  { src: '/images/photos/era-2018-rachel-gold-900.webp', year: '2018', cap: 'Lenzerheide Worlds · Rachel Atherton, World Champion' },
+  { src: '/images/photos/era-2018-kade-rainbow-900.webp', year: '2018', cap: 'Lenzerheide Worlds · Kade Edwards, Junior World Champion' },
+  { src: '/images/photos/era-2019-atherton-900.webp', year: '2019', cap: 'Atherton Bikes · Leogang · the crew and the truck' },
+  { src: '/images/photos/era-2020-tokyo-900.webp', year: '2020', cap: 'Tokyo · Tom Pidcock, Olympic champion' },
+  { src: '/images/photos/era-2022-cfr-900.webp', year: '2022', cap: 'Cannondale Factory Racing · setup with the rider' },
+  { src: '/images/photos/era-2023-charlie-u23-900.webp', year: '2023', cap: 'Glentress Worlds · Charlie Aldridge, U23 World Champion, with the crew' },
+  { src: '/images/photos/era-2025-msa-900.webp', year: '2025', cap: 'Mont-Sainte-Anne · Charlie Aldridge’s first elite XCO win' },
+];
+---
+<section id="film" class="py-20 border-y border-carbon-line bg-carbon-raised overflow-hidden">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 flex flex-wrap items-end justify-between gap-4 mb-6">
+    <div>
+      <p class="section-no mb-3">[06] FILM · 2011–2025 · TEAM ARCHIVES</p>
+      <h2 class="font-display text-display-md text-ink">FIFTEEN YEARS OF PIT LANES.</h2>
+    </div>
+    <p class="label">Scroll → · {frames.length} frames</p>
+  </div>
+  <div class="film" tabindex="0" aria-label="Career photographs, scroll horizontally">
+    {frames.map(f => (
+      <figure class="film-frame">
+        <div class="duotone overflow-hidden"><img src={f.src} width="900" height="600" loading="lazy" decoding="async" alt={`${f.year}: ${f.cap}`} class="block w-full h-auto aspect-[3/2] object-cover" /></div>
+        <figcaption class="flex gap-3 px-3 py-3 font-mono text-[10px] tracking-[0.12em] uppercase"><span class="text-signal tabular">{f.year}</span><span class="text-ink-faint">{f.cap}</span></figcaption>
+      </figure>
+    ))}
+  </div>
+</section>

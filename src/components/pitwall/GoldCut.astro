@@ -1,7 +1,7 @@
 ---
 const golds = [
-  { year: '2020', venue: 'TOKYO', disc: 'XCO', rider: 'Tom Pidcock', prog: 'PROGRAMME: BRITISH CYCLING', note: 'First British MTB Olympic medal in history.' },
-  { year: '2024', venue: 'PARIS', disc: 'XCO', rider: 'Pauline Ferrand-Prévot', prog: 'PROGRAMME: INEOS GRENADIERS', note: 'A full season built toward one race at home. Delivered.' },
+  { year: '2020', venue: 'TOKYO', disc: 'XCO', rider: 'Tom Pidcock', prog: 'PROGRAMME: BRITISH CYCLING', note: 'First British MTB Olympic medal in history.', photo: { src: '/images/photos/gold-tokyo-2020-1000.webp', w: 954, h: 1000, alt: 'Pete with Tom Pidcock holding the Tokyo 2020 Olympic gold medal' } },
+  { year: '2024', venue: 'PARIS', disc: 'XCO', rider: 'Pauline Ferrand-Prévot', prog: 'PROGRAMME: INEOS GRENADIERS', note: 'A full season built toward one race at home. Delivered.', photo: null },
 ];
 ---
 <section class="relative py-24 bg-black border-y border-carbon-line overflow-hidden">
@@ -10,12 +10,15 @@ const golds = [
     <p class="section-no mb-10 reveal">[04] GOLD CUT · THE RAREST FACT IN THE SPORT</p>
     <div class="grid md:grid-cols-2 gap-px bg-gold/30">
       {golds.map(g => (
-        <div class="bg-black p-8 md:p-12 reveal">
+        <div class="bg-black p-8 md:p-12 reveal grid gap-8 md:grid-cols-[1fr_auto] items-end">
+          <div>
           <p class="font-mono text-[12px] tracking-[0.25em] text-gold">{g.year} / {g.venue} / {g.disc}</p>
           <p class="font-display text-display-lg text-gold mt-4 leading-none">GOLD</p>
           <p class="font-body text-ink text-xl mt-4">{g.rider}</p>
           <p class="font-mono text-[11px] tracking-[0.18em] text-ink-dim mt-3">{g.prog}</p>
           <p class="font-body text-ink-dim mt-4 max-w-sm">{g.note}</p>
+          </div>
+          {g.photo && <figure class="w-40 md:w-52 gold-photo"><img src={g.photo.src} width={g.photo.w} height={g.photo.h} loading="lazy" decoding="async" alt={g.photo.alt} class="block w-full h-auto" /></figure>}
         </div>
       ))}
     </div>

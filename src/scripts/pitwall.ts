@@ -32,12 +32,7 @@ if (!CSS.supports('animation-timeline: scroll()')) {
 function boot() {
   const title = document.querySelector<HTMLElement>('.hero-title');
   if (!title) return;
-  const geo = document.querySelector<SVGElement>('.geometry');
-  const strokes = geo ? Array.from(geo.querySelectorAll<SVGGeometryElement>('line, circle')) : [];
-  const texts = geo ? Array.from(geo.querySelectorAll('text')) : [];
   if (reduced) { title.classList.add('ready'); return; }
-
-  strokes.forEach((el) => { el.setAttribute('pathLength', '1'); el.style.strokeDasharray = '1'; el.style.strokeDashoffset = '1'; });
   const split = SplitText.create(title, { type: 'lines,words,chars', mask: 'lines', linesClass: 'hero-line' });
   title.classList.add('ready');
 
@@ -45,9 +40,23 @@ function boot() {
     .from('.hero-eyebrow', { opacity: 0, duration: .4 }, 0)
     .from(split.chars, { yPercent: 110, duration: .9, stagger: 0.02 }, 0.05)
     .from('.hero-copy > *', { opacity: 0, y: 12, duration: .7, stagger: 0.08 }, 0.45)
-    .to(strokes, { strokeDashoffset: 0, duration: .8, stagger: 0.011, ease: 'power2.out' }, 0.2)
-    .from(texts, { opacity: 0, duration: .5, stagger: 0.03 }, 1.3)
-    .from('.hero-scroll', { opacity: 0, duration: .6 }, 1.8);
+    .from('.hero-photo', { opacity: 0, scale: 1.04, duration: 1.6, ease: 'power2.out' }, 0)
+    .from('.hero-credit, .hero-scroll', { opacity: 0, duration: .6 }, 1.4);
+}
+
+/* ---------- Geometry chart: draws itself in when it scrolls into view ---------- */
+const geo = document.querySelector<SVGElement>('.geometry');
+if (geo && !reduced) {
+  const strokes = Array.from(geo.querySelectorAll<SVGGeometryElement>('line, circle'));
+  const texts = Array.from(geo.querySelectorAll('text'));
+  strokes.forEach((el) => { el.setAttribute('pathLength', '1'); el.style.strokeDasharray = '1'; el.style.strokeDashoffset = '1'; });
+  gsap.set(texts, { opacity: 0 });
+  const gio = new IntersectionObserver((entries) => {
+    if (!entries.some((e) => e.isIntersecting)) return;
+    gsap.timeline().to(strokes, { strokeDashoffset: 0, duration: .8, stagger: 0.011, ease: 'power2.out' }, 0).to(texts, { opacity: 1, duration: .5, stagger: 0.03 }, 1.1);
+    gio.disconnect();
+  }, { threshold: 0.35 });
+  gio.observe(geo);
 }
 document.fonts.ready.then(boot);
 

@@ -10,6 +10,7 @@ export const siteConfig = {
   linkedin: 'https://www.linkedin.com/in/petemichaliszyn',
   buildSheet: '/build-sheet-pete-michaliszyn.pdf',
   status: 'AVAILABLE FOR 2027',
+  photoCredit: 'Photography from team archives 2011–2025 · photographers credited on request',
   nav: [
     { label: 'Palmarès', href: '#palmares' },
     { label: 'Career', href: '#career' },

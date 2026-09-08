@@ -125,6 +125,20 @@
   .geometry { display: block; width: 100%; height: auto; }
   @media (max-width: 767px) { .geometry .dim:not(.key), .geometry .sub, .geometry .dimline:not(.key) { display: none; } .section-no { letter-spacing: 0.14em; } }
 
+  /* Hero photograph: graded toward the carbon palette, scrim keeps the type legible */
+  .hero-photo { position: absolute; inset: 0; display: block; }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 68% 42%; filter: grayscale(.72) contrast(1.08) brightness(.66); }
+  .hero-scrim { position: absolute; inset: 0; background:
+    linear-gradient(90deg, rgba(10,11,13,.97) 0%, rgba(10,11,13,.88) 34%, rgba(10,11,13,.38) 62%, rgba(10,11,13,.5) 100%),
+    linear-gradient(180deg, rgba(10,11,13,.55) 0%, transparent 28%, transparent 68%, #0a0b0d 100%); }
+  @media (max-width: 1023px) { .hero-photo img { object-position: 74% 30%; } .hero-scrim { background: linear-gradient(180deg, rgba(10,11,13,.94) 0%, rgba(10,11,13,.86) 55%, rgba(10,11,13,.6) 80%, #0a0b0d 100%); } }
+
+  /* Film strip: horizontal snap scroll */
+  .film { display: flex; gap: 1px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 max(20px, calc((100vw - 80rem) / 2 + 32px)) 8px; background: var(--color-carbon-line); border-top: 1px solid var(--color-carbon-line); border-bottom: 1px solid var(--color-carbon-line); scrollbar-width: thin; }
+  .film-frame { flex: 0 0 min(78vw, 400px); scroll-snap-align: start; background: var(--color-carbon-raised); margin: 0; }
+  .film:focus-visible { outline: 2px solid var(--color-signal); outline-offset: -2px; }
+  .gold-photo { filter: grayscale(.35) contrast(1.05); border: 1px solid rgba(233,185,73,.35); }
+
   /* Duotone treatment for real screenshots/photos when they exist */
   .duotone { position: relative; filter: grayscale(1) contrast(1.05) brightness(.95); }
   .duotone::after { content: ''; position: absolute; inset: 0; background: var(--color-signal); mix-blend-mode: multiply; opacity: .18; pointer-events: none; }
