@@ -19,7 +19,7 @@ A single-page hire-me site for Piotr "Polish Pete" Michaliszyn, World Cup MTB he
 
 ## Positioning
 
-Pete is the mechanic who builds the systems a race programme runs on: per-venue setup database, BYB suspension telemetry, tyre/pressure testing against power data, race-day planning software the whole team uses. The site itself is that claim made visible — a data-first, F1-pitwall rendering of a verified palmarès. Two Olympic gold campaigns, fourteen elite Worlds medals, 126 World Cup top finishes, twenty seasons, and four elite Worlds medals in one week in 2026 from the squad he runs. No other mechanic in the paddock can truthfully show that page.
+Pete is the mechanic who builds the systems a race programme runs on: per-venue setup database, BYB suspension telemetry, tyre/pressure testing against power data, race-day planning software the whole team uses. The site itself is that claim made visible — a data-first, F1-pitwall rendering of a verified palmarès. Two Olympic gold campaigns, fourteen elite Worlds medals, 134 World Cup top finishes, twenty seasons, and four elite Worlds medals in one week in 2026 from the squad he runs. No other mechanic in the paddock can truthfully show that page.
 
 ## Operating Context
 

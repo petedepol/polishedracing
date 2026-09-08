@@ -18,8 +18,9 @@ if (!reduced) {
 /* ---------- HUD: session clock + lap bar fallback ---------- */
 const clock = document.getElementById('hud-clock');
 if (clock) {
-  const tick = () => { clock.textContent = new Date().toISOString().slice(11, 19) + ' UTC'; };
-  tick(); setInterval(tick, 1000);
+  const end = Date.UTC(2026, 11, 31, 23, 59, 59);
+  const tick = () => { const d = Math.max(0, Math.ceil((end - Date.now()) / 86400000)); clock.textContent = `T−${d} DAYS · OUT OF CONTRACT 31 DEC 2026`; };
+  tick(); setInterval(tick, 60000);
 }
 if (!CSS.supports('animation-timeline: scroll()')) {
   const bar = document.querySelector<HTMLElement>('.lap-bar');

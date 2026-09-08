@@ -5,13 +5,13 @@ import { siteConfig } from '../../data/site-config';
   <div class="max-w-7xl mx-auto px-5 md:px-8">
     <p class="section-no mb-4">[12] END OF FEED</p>
     <h2 class="font-display text-display-xl text-ink">LET'S TALK.</h2>
-    <p class="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-live mt-6"><span class="dot-live"></span>{siteConfig.status}</p>
+    <p class="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-ink mt-6"><span class="dot-live"></span>{siteConfig.status}</p>
     <div class="flex flex-wrap items-center gap-4 mt-8">
       <a href={`mailto:${siteConfig.email}`} class="btn-signal text-base">{siteConfig.email}</a>
       <a href={siteConfig.buildSheet} class="btn-ghost" download>Download build sheet [PDF]</a>
       <a href={siteConfig.linkedin} class="btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <p class="font-mono text-[11px] text-ink-dim mt-6">{siteConfig.phone} · WhatsApp</p>
+    <a href={siteConfig.whatsapp} class="font-mono text-[11px] text-ink-dim mt-6 inline-flex items-center gap-2 py-2 hover:text-ink">{siteConfig.phone} · WhatsApp →</a>
   </div>
   <footer class="max-w-7xl mx-auto px-5 md:px-8 mt-20 pt-6 border-t border-carbon-line flex flex-wrap justify-between gap-3 font-mono text-[10px] text-ink-faint tracking-[0.12em]">
     <span>© {new Date().getFullYear()} PETE MICHALISZYN · POLISHED RACING</span>

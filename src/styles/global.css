@@ -123,7 +123,7 @@
   @keyframes unhide { to { opacity: 1; } }
   .hero-line { overflow: hidden; }
   .geometry { display: block; width: 100%; height: auto; }
-  @media (max-width: 767px) { .geometry .dim, .geometry .sub, .geometry .dimline { display: none; } }
+  @media (max-width: 767px) { .geometry .dim:not(.key), .geometry .sub, .geometry .dimline:not(.key) { display: none; } .section-no { letter-spacing: 0.14em; } }
 
   /* Duotone treatment for real screenshots/photos when they exist */
   .duotone { position: relative; filter: grayscale(1) contrast(1.05) brightness(.95); }

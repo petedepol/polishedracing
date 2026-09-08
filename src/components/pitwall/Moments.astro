@@ -2,8 +2,8 @@
 const moments = [
   { k: '8/8', t: 'Rachel Atherton — the perfect season', d: 'Seven World Cups from seven starts, then the Worlds in Val di Sole. 2016 — my first year as Trek Factory Racing head mechanic.', c: 'text-gold' },
   { k: '2014', t: 'Gee Atherton — World Champion, Hafjell', d: 'Three seasons of GT Factory Racing preparation landed on one run in Norway.', c: 'text-gold' },
-  { k: '3D-Ti', t: 'Atherton Bikes — printed lugs to the podium', d: 'Development mechanic on the titanium-printed lug frames, from prototype to World Cup podium in a single season.', c: 'text-signal' },
-  { k: '4', t: 'Val di Sole 2026 — four elite Worlds medals in one week', d: 'Charlie Aldridge silver in XCO and short track, Cole Punchard bronze in his first elite season, Luca Martin short-track bronze. The squad I run at CFR.', c: 'text-silver' },
+  { k: '3D-Ti', t: 'Atherton Bikes — printed lugs to the podium', d: 'Development mechanic on the titanium-printed lug frames, from prototype to World Cup podium in a single season.', c: 'text-ink' },
+  { k: '4', t: 'Val di Sole 2026 — four elite Worlds medals in one week', d: 'Charlie Aldridge silver in XCO and short track, Cole Punchard bronze in his first elite season, Luca Martin short-track bronze. The squad I run at CFR.', c: 'text-ink' },
   { k: 'P1', t: 'Luca Martin — two World Cup wins and the overall lead', d: 'Lenzerheide, then La Thuile by 1:07. The men’s series lead into the final rounds, on bikes prepared by the crew I run.', c: 'text-signal' },
   { k: '2025', t: 'Charlie Aldridge — first elite World Cup wins', d: 'Short track at Les Gets, then the XCO at Mont-Sainte-Anne, from a rider I first worked with as a U23 World Champion in 2023.', c: 'text-signal' },
 ];
@@ -14,7 +14,7 @@ const moments = [
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-carbon-line hairline mt-6">
       {moments.map((m, i) => (
         <article class="bg-carbon-raised p-6 reveal" style={`transition-delay:${i*50}ms`}>
-          <div class={`font-display text-5xl ${m.c}`}>{m.k}</div>
+          <div class={`font-mono font-bold text-[44px] leading-none tabular ${m.c}`}>{m.k}</div>
           <h3 class="font-body text-ink font-semibold mt-3">{m.t}</h3>
           <p class="font-body text-ink-dim text-sm mt-2">{m.d}</p>
         </article>

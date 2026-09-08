@@ -4,7 +4,7 @@ export const riders = [
   { name: 'Rachel Atherton', line: '4× World Champion under my spanners · the perfect 2016' },
   { name: 'Gee Atherton', line: 'World Champion 2014 · 24 WC top-5s' },
   { name: 'Dan Atherton', line: 'Atherton programme 2011–19' },
-  { name: 'Jolanda Neff', line: 'Olympic champion ’21 · CFR 2025–26' },
+  { name: 'Jolanda Neff', line: 'Olympic champion · Tokyo 2020 · CFR 2025–26' },
   { name: 'Luca Martin', line: 'Two WC wins ’26 · overall leader · Worlds XCC bronze ’26' },
   { name: 'Charlie Aldridge', line: 'U23 World Champion ’23 · first elite WC wins ’25 · 2× Worlds silver ’26' },
   { name: 'Cole Punchard', line: 'Elite Worlds bronze ’26 · U23 Worlds silver + bronze ’25 · my rider' },
