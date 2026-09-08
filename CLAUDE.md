@@ -23,3 +23,6 @@ Single-page Astro 7 + Tailwind 4 static site. Design world = **PIT WALL** (F1 pi
 
 ## Git
 Feature branches (`feature/`, `fix/`, `chore/`), conventional commits, never commit to main directly.
+
+## Fig. 02 geometry overlay
+`scripts/geom-photo.py` draws the manufacturer's chart over a real side-on photo using only the two axle pixel positions (scale = wheelbase). Regenerate with the command in `projects/cv/photos/README.md` (Petebot) if the photo or size changes; `src/assets/scalpel-photo-overlay.svg` is generated, do not hand-edit. `scripts/geom.py` is the old schematic drawing, kept for reference.

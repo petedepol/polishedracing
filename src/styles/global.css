@@ -122,8 +122,31 @@
   .js .hero-title:not(.ready) { opacity: 0; animation: unhide 0s 1.2s forwards; }
   @keyframes unhide { to { opacity: 1; } }
   .hero-line { overflow: hidden; }
-  .geometry { display: block; width: 100%; height: auto; }
-  @media (max-width: 767px) { .geometry .dim:not(.key), .geometry .sub, .geometry .dimline:not(.key) { display: none; } .section-no { letter-spacing: 0.14em; } }
+  /* Fig. 02: chart geometry drawn over a photograph of the real bike; a scan line reveals it (pitwall.ts) */
+  .geometry-stage { position: relative; }
+  .geometry-stage .duotone { transition: filter .7s var(--ease-settle); }
+  .geometry-stage .duotone::after { transition: opacity .7s var(--ease-settle); }
+  .geometry-fig:hover .geometry-stage .duotone { filter: grayscale(.1) contrast(1.02) brightness(.92); }
+  .geometry-fig:hover .geometry-stage .duotone::after { opacity: .05; }
+  .geometry { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .geometry .dimline { stroke: var(--color-signal); stroke-width: 2; stroke-dasharray: 6 8; opacity: .95; }
+  .geometry .guide { stroke: var(--color-signal); stroke-width: 1.2; opacity: .45; }
+  .geometry .axis { stroke: var(--color-signal); stroke-width: 1.5; stroke-dasharray: 4 10; opacity: .8; }
+  .geometry .skel { stroke: var(--color-ink); stroke-width: 2; stroke-dasharray: 3 9; opacity: .55; }
+  .geometry .ring { stroke: var(--color-signal); stroke-width: 2; }
+  .geometry .dot { fill: var(--color-signal); }
+  .geometry .dim { fill: var(--color-signal); font-size: 34px; letter-spacing: .08em; paint-order: stroke; stroke: var(--color-carbon); stroke-width: 7; stroke-opacity: .9; stroke-linejoin: round; }
+  .geometry .sub { fill: var(--color-silver); font-size: 26px; letter-spacing: .06em; paint-order: stroke; stroke: var(--color-carbon); stroke-width: 6; stroke-opacity: .9; stroke-linejoin: round; }
+  .geometry .scan { stroke: var(--color-signal); stroke-width: 3; opacity: 0; filter: drop-shadow(0 0 8px var(--color-signal)); }
+  @media (max-width: 767px) {
+    .geometry .dim:not(.key), .geometry .sub, .geometry .dimline:not(.key), .geometry .guide, .geometry .skel, .geometry .axis { display: none; }
+    .geometry .dim.key { font-size: 64px; stroke-width: 14; }
+    .geometry .dim.ha { text-anchor: end; transform: translate(0, -100px); }
+    .geometry .dimline.key { stroke-width: 4; }
+    .geometry .ring { stroke-width: 4; r: 28px; }
+    .geometry .dot { r: 10px; }
+    .section-no { letter-spacing: 0.14em; }
+  }
 
   /* Hero photograph: graded toward the carbon palette, scrim keeps the type legible */
   .hero-photo { position: absolute; inset: 0; display: block; }

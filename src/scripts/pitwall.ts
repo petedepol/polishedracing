@@ -45,18 +45,33 @@ function boot() {
 }
 
 /* ---------- Geometry chart: draws itself in when it scrolls into view ---------- */
-const geo = document.querySelector<SVGElement>('.geometry');
+/* Fig. 02: a scan line sweeps the photo; the chart geometry appears behind it, numbers tick to value */
+const geo = document.querySelector<SVGSVGElement>('.geometry');
 if (geo && !reduced) {
-  const strokes = Array.from(geo.querySelectorAll<SVGGeometryElement>('line, circle'));
-  const texts = Array.from(geo.querySelectorAll('text'));
-  strokes.forEach((el) => { el.setAttribute('pathLength', '1'); el.style.strokeDasharray = '1'; el.style.strokeDashoffset = '1'; });
-  gsap.set(texts, { opacity: 0 });
-  const gio = new IntersectionObserver((entries) => {
-    if (!entries.some((e) => e.isIntersecting)) return;
-    gsap.timeline().to(strokes, { strokeDashoffset: 0, duration: .8, stagger: 0.011, ease: 'power2.out' }, 0).to(texts, { opacity: 1, duration: .5, stagger: 0.03 }, 1.1);
-    gio.disconnect();
-  }, { threshold: 0.35 });
-  gio.observe(geo);
+  const clip = geo.querySelector<SVGRectElement>('.geo-clip-rect');
+  const scan = geo.querySelector<SVGLineElement>('.scan');
+  const labels = Array.from(geo.querySelectorAll<SVGTextElement>('text[data-v]'));
+  const finals = labels.map((t) => t.textContent ?? '');
+  if (clip && scan) {
+    const W = geo.viewBox.baseVal.width;
+    clip.setAttribute('width', '0');
+    const gio = new IntersectionObserver((entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      gio.disconnect();
+      const tl = gsap.timeline();
+      tl.set(scan, { opacity: 1 }, 0)
+        .to(clip, { attr: { width: W }, duration: 1.7, ease: 'power1.inOut' }, 0)
+        .to(scan, { attr: { x1: W, x2: W }, duration: 1.7, ease: 'power1.inOut' }, 0)
+        .to(scan, { opacity: 0, duration: .35 }, 1.5);
+      labels.forEach((t, i) => {
+        const target = Number(t.dataset.v); const prefix = t.dataset.prefix ?? '';
+        const dec = finals[i].includes('.') ? 1 : 0; const suffix = finals[i].endsWith('°') ? '°' : '';
+        const o = { v: 0 };
+        tl.to(o, { v: target, duration: .9, ease: 'power3.out', onUpdate: () => { t.textContent = `${prefix} ${o.v.toFixed(dec)}${suffix}`; }, onComplete: () => { t.textContent = finals[i]; } }, 0.35 + i * 0.07);
+      });
+    }, { threshold: 0.4 });
+    gio.observe(geo);
+  }
 }
 document.fonts.ready.then(boot);
 

@@ -1,5 +1,5 @@
 ---
-import geometry from '../../assets/scalpel-geometry.svg?raw';
+import geometry from '../../assets/scalpel-photo-overlay.svg?raw';
 const hands = [
   { src: '/images/photos/hands-2017-lenzerheide-laptop-1400.webp', w: 1400, h: 933, cap: 'Lenzerheide 2017 · Trek Factory Racing · lap data in the pits' },
   { src: '/images/photos/detail-2019-bike22-1400.webp', w: 1400, h: 933, cap: '2019 · Atherton Racing · fork setup before a run' },
@@ -57,10 +57,13 @@ const hands = [
       ))}
     </div>
     <figure class="mt-px hairline bg-carbon-raised geometry-fig reveal">
-      <div class="p-4 md:p-8"><Fragment set:html={geometry} /></div>
-      <figcaption class="font-mono text-[10px] tracking-[0.1em] md:tracking-[0.15em] text-ink-faint px-4 md:px-8 pb-5 flex flex-wrap justify-between gap-x-6 gap-y-1 uppercase">
-        <span>Fig. 02 · the bike the squad races · geometry from the manufacturer's chart, trail computed</span>
-        <span class="hidden md:inline">Setup database · every rider · every round</span>
+      <div class="geometry-stage">
+        <div class="duotone"><img src="/images/photos/bike-scalpel-worlds-2026-2048.webp" srcset="/images/photos/bike-scalpel-worlds-2026-1200.webp 1200w, /images/photos/bike-scalpel-worlds-2026-2048.webp 2048w" sizes="(min-width: 80rem) 76rem, 100vw" width="2048" height="1536" loading="lazy" decoding="async" alt="Luca Martin's black Cannondale Scalpel for the 2026 World Championships, side on, with the frame geometry dimensions drawn over it" class="block w-full h-auto" /></div>
+        <Fragment set:html={geometry} />
+      </div>
+      <figcaption class="font-mono text-[10px] tracking-[0.1em] md:tracking-[0.15em] text-ink-faint px-4 md:px-8 py-5 flex flex-wrap justify-between gap-x-6 gap-y-1 uppercase">
+        <span>Fig. 02 · Luca Martin's Worlds bike · Val di Sole 2026 · size L · chart geometry drawn on the real frame, only the two axles measured</span>
+        <span class="hidden md:inline">Trail computed for the team's 45 mm Lefty · hover for colour</span>
       </figcaption>
     </figure>
     <figure class="mt-px grid md:grid-cols-[minmax(0,2fr)_1fr] gap-px bg-carbon-line hairline reveal" id="cfr-app">
