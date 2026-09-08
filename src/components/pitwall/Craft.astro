@@ -1,6 +1,7 @@
 ---
 import geometry from '../../assets/scalpel-geometry.svg?raw';
 const hands = [
+  { src: '/images/photos/hands-2017-lenzerheide-laptop-1400.webp', w: 1400, h: 933, cap: 'Lenzerheide 2017 · Trek Factory Racing · lap data in the pits' },
   { src: '/images/photos/detail-2019-bike22-1400.webp', w: 1400, h: 933, cap: '2019 · Atherton Racing · fork setup before a run' },
   { src: '/images/photos/hands-2018-fortwilliam-1400.webp', w: 1400, h: 933, cap: 'Fort William 2018 · Trek Factory Racing · tyre change' },
   { src: '/images/photos/pit-2022-cannondale-1400.webp', w: 1400, h: 933, cap: '2022 · Cannondale Factory Racing · saddle position, rider watching' },
@@ -19,7 +20,7 @@ const hands = [
           <li><strong>Olympic build standards</strong> — two Games campaigns delivered under maximum pressure</li>
           <li><strong>Lead truck driver &amp; race logistics</strong> — 8.75-t race truck, full European calendar, long-haul rounds</li>
           <li><strong>Product development</strong> — Atherton 3D-Ti frame programme; prototype testing and sponsor feedback (Fox, Schwalbe, Cannondale, SRAM/Shimano)</li>
-          <li><strong>Crew building</strong> — hired Matteo Nati, Andy Lund, Joe Krejbich and Marek Ufnal; for most it was their first factory-team job, and they have gone on to strong careers</li>
+          <li><strong>Crew building</strong> — hired Matteo Nati, Andy Lund, Joe Krejbich, Marek Ufnal and Will Soffe; for most it was their first factory-team job, and they have gone on to strong careers</li>
           <li><strong>Cytech certified</strong></li>
         </ul>
       </div>
@@ -35,7 +36,7 @@ const hands = [
         <p class="font-mono text-[10px] text-ink-faint mt-6 tracking-[0.12em]">BUILT BECAUSE THEY DIDN'T EXIST. IN USE EVERY RACE WEEKEND.</p>
       </div>
     </div>
-    <div class="grid md:grid-cols-3 gap-px bg-carbon-line hairline mt-px">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-carbon-line hairline mt-px">
       {hands.map(h => (
         <figure class="bg-carbon-raised reveal">
           <div class="duotone overflow-hidden"><img src={h.src} width={h.w} height={h.h} loading="lazy" decoding="async" alt={h.cap} class="block w-full h-auto aspect-[3/2] object-cover" /></div>
