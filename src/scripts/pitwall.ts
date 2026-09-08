@@ -41,7 +41,7 @@ function boot() {
     .from(split.chars, { yPercent: 110, duration: .9, stagger: 0.02 }, 0.05)
     .from('.hero-copy > *', { opacity: 0, y: 12, duration: .7, stagger: 0.08 }, 0.45)
     .from('.hero-photo', { opacity: 0, scale: 1.04, duration: 1.6, ease: 'power2.out' }, 0)
-    .from('.hero-credit, .hero-scroll', { opacity: 0, duration: .6 }, 1.4);
+    .from('.hero-credit', { opacity: 0, duration: .6 }, 1.4);
 }
 
 /* ---------- Geometry chart: draws itself in when it scrolls into view ---------- */
