@@ -7,7 +7,6 @@ export const siteConfig = {
   email: 'info@polishedracing.co.uk',
   phone: '+48 571 504 705',
   whatsapp: 'https://wa.me/48571504705',
-  linkedin: 'https://www.linkedin.com/in/petemichaliszyn',
   buildSheet: '/build-sheet-pete-michaliszyn.pdf',
   status: 'AVAILABLE FOR 2027',
   photoCredit: 'Photography from team archives 2011–2025 · photographers credited on request',

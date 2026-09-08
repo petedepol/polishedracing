@@ -30,13 +30,15 @@ const rows: Row[] = [
 ];
 export const palmares: Row[] = [...rows].sort((a, b) => Number(b.year) - Number(a.year) || (b.m ?? 0) - (a.m ?? 0));
 
-export const development: Row[] = [
-  { pos: 'P1', rider: 'Kade Edwards', event: 'Junior World Championships · Lenzerheide', disc: 'DH', result: 'JUNIOR WORLD CHAMPION', medal: 'GOLD', year: '2018', role: 'Trek FR · head mechanic' },
+const dev: Row[] = [
+  { pos: 'P1', rider: 'Taylor Vernon', event: 'World Cup · Windham · first junior World Cup win, by 0.8 s', disc: 'DH', result: 'JUNIOR WC WIN', medal: 'WIN', year: '2014', m: 8, role: 'GT FR · his mechanic' },
+  { pos: 'P1', rider: 'Kade Edwards', event: 'Junior World Championships · Lenzerheide', disc: 'DH', result: 'JUNIOR WORLD CHAMPION', medal: 'GOLD', year: '2018', role: 'Trek FR · head mechanic (crew lead)' },
   { pos: 'P1', rider: 'Charlie Aldridge', event: 'U23 World Championships', disc: 'XCO', result: 'U23 WORLD CHAMPION', medal: 'GOLD', year: '2023', role: 'CFR · mechanic' },
   { pos: 'P2', rider: 'Mille Johnset', event: 'Junior World Championships · Mont-Sainte-Anne', disc: 'DH', result: 'SILVER', medal: 'SILVER', year: '2019', role: 'Atherton Bikes · head mechanic' },
   { pos: 'P3', rider: 'Mille Johnset', event: 'Junior World Championships · Lenzerheide', disc: 'DH', result: 'BRONZE', medal: 'BRONZE', year: '2018', role: 'Trek FR · head mechanic' },
   { pos: 'P2', rider: 'Cole Punchard', event: 'U23 World Championships · Crans-Montana', disc: 'XCO', result: 'SILVER', medal: 'SILVER', year: '2025', role: 'CFR · his mechanic' },
   { pos: 'P3', rider: 'Cole Punchard', event: 'U23 World Championships · Crans-Montana', disc: 'XCC', result: 'BRONZE', medal: 'BRONZE', year: '2025', role: 'CFR · his mechanic' },
 ];
+export const development: Row[] = [...dev].sort((a, b) => Number(b.year) - Number(a.year) || (b.m ?? 0) - (a.m ?? 0));
 
 export const countingRule = 'COUNTING RULE: UCI WORLD CUP ONLY · TOP-5 THROUGH 2024 · TOP-3 FROM 2025 · 100 OF 134 ARE ROOTS & RAIN-VERIFIED DH TOP-5s 2011–19 · RESULTS BELONG TO THE RIDERS — MY ROLE IS STATED PER ROW';
