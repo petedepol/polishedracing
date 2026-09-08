@@ -1,5 +1,17 @@
 ---
-import geometry from '../../assets/scalpel-photo-overlay.svg?raw';
+// Fig. 02 build sheet: numbered points on the real bike (photo px, 2048×1536) + the chart geometry as a stat strip
+const spots = [
+  { n: 1, x: 1145, y: 724,  part: 'Cannondale Scalpel · size L', note: '120 mm front and rear. Worlds-only black paint, built for Val di Sole 2026.' },
+  { n: 2, x: 1415, y: 556,  part: 'Lefty Ocho · 120 mm', note: 'Single-sided, needle bearings, 45 mm offset. Trail 111 mm with the 66.6° head angle.' },
+  { n: 3, x: 935,  y: 640,  part: 'Fox Float SL', note: '190 × 45 shock, Kashima. Tune is per rider and per round.' },
+  { n: 4, x: 859,  y: 1011, part: 'Shimano XTR · 12-speed', note: 'Drivetrain and brakes. One chainring, chosen for the course profile.' },
+  { n: 5, x: 1751, y: 1179, part: 'Schwalbe Rick · Race Pro', note: 'Radial casing, tubeless, 29 in. Pressure set per rider on race morning.' },
+  { n: 6, x: 674,  y: 387,  part: 'Fox Transfer SL', note: 'Dropper post, Kashima. Saddle height and setback recorded on the jig.' },
+];
+const stats = [
+  { label: 'Wheelbase', value: 1207, unit: 'mm' }, { label: 'Reach', value: 475, unit: 'mm' }, { label: 'Stack', value: 604, unit: 'mm' },
+  { label: 'Head angle', value: 66.6, unit: '°' }, { label: 'Chainstay', value: 442, unit: 'mm' }, { label: 'Trail', value: 111, unit: 'mm' },
+];
 const hands = [
   { src: '/images/photos/hands-2017-lenzerheide-laptop-1400.webp', w: 1400, h: 933, cap: 'Lenzerheide 2017 · Trek Factory Racing · lap data in the pits' },
   { src: '/images/photos/detail-2019-bike22-1400.webp', w: 1400, h: 933, cap: '2019 · Atherton Racing · fork setup before a run' },
@@ -56,14 +68,37 @@ const hands = [
         </figure>
       ))}
     </div>
-    <figure class="mt-px hairline bg-carbon-raised geometry-fig reveal">
-      <div class="geometry-stage">
-        <div class="duotone"><img src="/images/photos/bike-scalpel-worlds-2026-2048.webp" srcset="/images/photos/bike-scalpel-worlds-2026-1200.webp 1200w, /images/photos/bike-scalpel-worlds-2026-2048.webp 2048w" sizes="(min-width: 80rem) 76rem, 100vw" width="2048" height="1536" loading="lazy" decoding="async" alt="Luca Martin's black Cannondale Scalpel for the 2026 World Championships, side on, with the frame geometry dimensions drawn over it" class="block w-full h-auto" /></div>
-        <Fragment set:html={geometry} />
+    <figure class="mt-px hairline bg-carbon-raised geometry-fig reveal" id="build-sheet">
+      <div class="grid lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] gap-px bg-carbon-line">
+        <div class="geometry-stage bg-carbon-raised">
+          <div class="duotone"><img src="/images/photos/bike-scalpel-worlds-2026-2048.webp" srcset="/images/photos/bike-scalpel-worlds-2026-1200.webp 1200w, /images/photos/bike-scalpel-worlds-2026-2048.webp 2048w" sizes="(min-width: 80rem) 50rem, 100vw" width="2048" height="1536" loading="lazy" decoding="async" alt="Luca Martin's black Cannondale Scalpel for the 2026 World Championships, side on, with six numbered points marking the fork, shock, drivetrain, tyres and dropper" class="block w-full h-auto" /></div>
+          <svg class="geometry" viewBox="0 0 2048 1536" fill="none" font-family="JetBrains Mono, ui-monospace, monospace" aria-hidden="true">
+            <defs><clipPath id="geo-clip"><rect class="geo-clip-rect" x="0" y="0" width="2048" height="1536" /></clipPath></defs>
+            <g class="geo" clip-path="url(#geo-clip)">
+              {spots.map(s => (
+                <g class="spot" data-spot={s.n}><circle class="spot-hit" cx={s.x} cy={s.y} r="56" /><circle class="spot-ring" cx={s.x} cy={s.y} r="34" /><text class="spot-n" x={s.x} y={s.y}>{s.n}</text></g>
+              ))}
+            </g>
+            <line class="scan" x1="0" y1="0" x2="0" y2="1536" />
+          </svg>
+        </div>
+        <ol class="bg-carbon-raised divide-y divide-carbon-line">
+          {spots.map(s => (
+            <li class="spot-row flex gap-4 px-5 py-4 cursor-default" data-spot={s.n}>
+              <span class="spot-badge shrink-0 w-7 h-7 rounded-full border border-signal text-signal font-mono text-[12px] font-bold flex items-center justify-center tabular">{s.n}</span>
+              <div><p class="font-mono text-[11px] tracking-[0.12em] uppercase text-ink">{s.part}</p><p class="font-body text-sm text-ink-dim mt-1 leading-snug">{s.note}</p></div>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <div id="geo-stats" class="grid grid-cols-3 md:grid-cols-6 gap-px bg-carbon-line border-t border-carbon-line">
+        {stats.map(st => (
+          <div class="bg-carbon-raised px-4 py-4"><p class="font-mono text-[10px] tracking-[0.15em] uppercase text-ink-faint">{st.label}</p><p class="font-mono text-2xl text-signal tabular mt-1"><number-flow data-target={st.value}>{st.value}</number-flow><span class="text-ink-faint text-sm ml-1">{st.unit}</span></p></div>
+        ))}
       </div>
       <figcaption class="font-mono text-[10px] tracking-[0.1em] md:tracking-[0.15em] text-ink-faint px-4 md:px-8 py-5 flex flex-wrap justify-between gap-x-6 gap-y-1 uppercase">
-        <span>Fig. 02 · Luca Martin's Worlds bike · Val di Sole 2026 · size L · chart geometry drawn on the real frame, only the two axles measured</span>
-        <span class="hidden md:inline">Trail computed for the team's 45 mm Lefty · hover for colour</span>
+        <span>Fig. 02 · build sheet · Luca Martin's Worlds bike · Val di Sole 2026</span>
+        <span class="hidden md:inline">Geometry from Cannondale's size-L chart, trail for the team's 45 mm offset · hover for colour</span>
       </figcaption>
     </figure>
     <figure class="mt-px grid md:grid-cols-[minmax(0,2fr)_1fr] gap-px bg-carbon-line hairline reveal" id="cfr-app">

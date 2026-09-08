@@ -24,12 +24,12 @@ const frames = [
       <p class="section-no mb-3">[06] FILM · 2011–2025 · TEAM ARCHIVES</p>
       <h2 class="font-display text-display-md text-ink">FIFTEEN YEARS OF PIT LANES.</h2>
     </div>
-    <p class="label">Scroll → · {frames.length} frames</p>
+    <div class="flex items-center gap-3"><p class="label">{frames.length} frames · drag, scroll or</p><div class="film-nav flex gap-px" aria-label="Scroll the film strip"><button type="button" data-film-nav="prev" aria-label="Previous frames">←</button><button type="button" data-film-nav="next" aria-label="Next frames">→</button></div></div>
   </div>
-  <div class="film" tabindex="0" aria-label="Career photographs, scroll horizontally">
+  <div class="film" tabindex="0" data-lenis-prevent aria-label="Career photographs, scroll horizontally">
     {frames.map(f => (
       <figure class="film-frame">
-        <div class="duotone overflow-hidden"><img src={f.src} width="900" height="600" loading="lazy" decoding="async" alt={`${f.year}: ${f.cap}`} class="block w-full h-auto aspect-[3/2] object-cover" style={f.pos ? `object-position:${f.pos}` : undefined} /></div>
+        <div class="duotone overflow-hidden"><img src={f.src} width="900" height="600" loading="lazy" decoding="async" alt={`${f.year}: ${f.cap}`} draggable="false" class="block w-full h-auto aspect-[3/2] object-cover" style={f.pos ? `object-position:${f.pos}` : undefined} /></div>
         <figcaption class="flex gap-3 px-3 py-3 font-mono text-[10px] tracking-[0.12em] uppercase"><span class="text-signal tabular">{f.year}</span><span class="text-ink-faint">{f.cap}</span></figcaption>
       </figure>
     ))}

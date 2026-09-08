@@ -129,22 +129,21 @@
   .geometry-fig:hover .geometry-stage .duotone { filter: grayscale(.1) contrast(1.02) brightness(.92); }
   .geometry-fig:hover .geometry-stage .duotone::after { opacity: .05; }
   .geometry { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-  .geometry .dimline { stroke: var(--color-signal); stroke-width: 2; stroke-dasharray: 6 8; opacity: .95; }
-  .geometry .guide { stroke: var(--color-signal); stroke-width: 1.2; opacity: .45; }
-  .geometry .axis { stroke: var(--color-signal); stroke-width: 1.5; stroke-dasharray: 4 10; opacity: .8; }
-  .geometry .skel { stroke: var(--color-ink); stroke-width: 2; stroke-dasharray: 3 9; opacity: .55; }
-  .geometry .ring { stroke: var(--color-signal); stroke-width: 2; }
-  .geometry .dot { fill: var(--color-signal); }
-  .geometry .dim { fill: var(--color-signal); font-size: 34px; letter-spacing: .08em; paint-order: stroke; stroke: var(--color-carbon); stroke-width: 7; stroke-opacity: .9; stroke-linejoin: round; }
-  .geometry .sub { fill: var(--color-silver); font-size: 26px; letter-spacing: .06em; paint-order: stroke; stroke: var(--color-carbon); stroke-width: 6; stroke-opacity: .9; stroke-linejoin: round; }
+  .geometry .spot-hit { fill: transparent; pointer-events: all; }
+  .geometry .spot { cursor: pointer; }
+  .geometry .spot-ring { fill: rgba(10, 11, 13, .6); stroke: var(--color-signal); stroke-width: 2.5; transition: fill .3s var(--ease-settle), stroke-width .3s; }
+  .geometry .spot-n { fill: var(--color-signal); font-size: 34px; font-weight: 700; text-anchor: middle; dominant-baseline: central; pointer-events: none; transition: fill .3s; }
+  .geometry .spot.is-hot .spot-ring { fill: var(--color-signal); stroke-width: 4; }
+  .geometry .spot.is-hot .spot-n { fill: var(--color-carbon); }
+  .spot-row { transition: background-color .3s var(--ease-settle); }
+  .spot-row.is-hot { background-color: rgba(198, 255, 46, .07); }
+  .spot-row .spot-badge { transition: background-color .3s, color .3s; }
+  .spot-row.is-hot .spot-badge { background-color: var(--color-signal); color: var(--color-carbon); }
   .geometry .scan { stroke: var(--color-signal); stroke-width: 3; opacity: 0; filter: drop-shadow(0 0 8px var(--color-signal)); }
   @media (max-width: 767px) {
-    .geometry .dim:not(.key), .geometry .sub, .geometry .dimline:not(.key), .geometry .guide, .geometry .skel, .geometry .axis { display: none; }
-    .geometry .dim.key { font-size: 64px; stroke-width: 14; }
-    .geometry .dim.ha { text-anchor: end; transform: translate(0, -100px); }
-    .geometry .dimline.key { stroke-width: 4; }
-    .geometry .ring { stroke-width: 4; r: 28px; }
-    .geometry .dot { r: 10px; }
+    .geometry .spot-ring { r: 60px; stroke-width: 5; }
+    .geometry .spot-hit { r: 90px; }
+    .geometry .spot-n { font-size: 60px; }
     .section-no { letter-spacing: 0.14em; }
   }
 
@@ -160,6 +159,12 @@
   .film { display: flex; gap: 1px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 max(20px, calc((100vw - 80rem) / 2 + 32px)) 8px; background: var(--color-carbon-line); border-top: 1px solid var(--color-carbon-line); border-bottom: 1px solid var(--color-carbon-line); scrollbar-width: thin; }
   .film-frame { flex: 0 0 min(78vw, 400px); scroll-snap-align: start; background: var(--color-carbon-raised); margin: 0; }
   .film:focus-visible { outline: 2px solid var(--color-signal); outline-offset: -2px; }
+  .film { cursor: grab; }
+  .film.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
+  .film img { -webkit-user-drag: none; user-select: none; }
+  .film-nav button { width: 2.75rem; height: 2.75rem; border: 1px solid var(--color-carbon-line); background: var(--color-carbon); color: var(--color-ink-dim); font-family: var(--font-mono); font-size: 1rem; transition: color .2s, border-color .2s, background-color .2s; }
+  .film-nav button:hover, .film-nav button:focus-visible { color: var(--color-signal); border-color: var(--color-signal); outline: none; }
+  .film-nav button:active { background: var(--color-carbon-raised); }
   .gold-photo { filter: grayscale(.35) contrast(1.05); border: 1px solid rgba(233,185,73,.35); }
 
   /* Duotone treatment for real screenshots/photos when they exist */

@@ -86,9 +86,10 @@ const io = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal, .feed-row').forEach((el) => io.observe(el));
 
 /* ---------- Instrument cluster: digits tick to value (NumberFlow) ---------- */
-type Flow = HTMLElement & { update: (v: number) => void; transformTiming: EffectTiming; spinTiming?: EffectTiming; };
+type Flow = HTMLElement & { update: (v: number) => void; transformTiming: EffectTiming; spinTiming?: EffectTiming; format?: Intl.NumberFormatOptions; };
 const flows = Array.from(document.querySelectorAll<Flow>('number-flow[data-target]'));
 flows.forEach((f) => {
+  if (f.closest('#geo-stats')) f.format = { useGrouping: false, maximumFractionDigits: 1 };   // millimetres, not thousands
   f.transformTiming = { duration: 900, easing: settle };
   f.spinTiming = { duration: 900, easing: settle };
   f.update(reduced ? Number(f.dataset.target) : 0);
@@ -119,4 +120,43 @@ if (group) {
     });
     if (count) count.textContent = String(n);
   }));
+}
+
+
+/* ---------- Film strip: mouse wheel goes sideways, drag to scroll, arrow buttons ---------- */
+const film = document.querySelector<HTMLElement>('.film');
+if (film) {
+  film.addEventListener('wheel', (e) => {
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;            // trackpad already scrolling sideways
+    const max = film.scrollWidth - film.clientWidth;
+    const atEnd = e.deltaY > 0 ? film.scrollLeft >= max - 1 : film.scrollLeft <= 1;
+    if (atEnd) return;                                              // let the page carry on
+    e.preventDefault(); film.scrollLeft += e.deltaY;
+  }, { passive: false });
+  let drag: { x: number; left: number; moved: boolean } | null = null;
+  film.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse' || e.button !== 0) return; drag = { x: e.clientX, left: film.scrollLeft, moved: false }; film.classList.add('is-dragging'); });
+  window.addEventListener('pointermove', (e) => { if (!drag) return; const dx = e.clientX - drag.x; if (Math.abs(dx) > 3) drag.moved = true; film.scrollLeft = drag.left - dx; });
+  window.addEventListener('pointerup', () => { if (!drag) return; drag = null; film.classList.remove('is-dragging'); });
+  const step = () => (film.querySelector<HTMLElement>('.film-frame')?.offsetWidth ?? 400) + 1;
+  document.querySelectorAll<HTMLButtonElement>('[data-film-nav]').forEach((b) => b.addEventListener('click', () => film.scrollBy({ left: (b.dataset.filmNav === 'next' ? 1 : -1) * step(), behavior: 'smooth' })));
+}
+
+/* ---------- Build sheet: a point on the photo and its row light up together ---------- */
+const spots = Array.from(document.querySelectorAll<HTMLElement | SVGElement>('[data-spot]'));
+const peersOf = (n: string) => spots.filter((p) => (p as HTMLElement).dataset.spot === n);
+const setHot = (n: string, on: boolean) => peersOf(n).forEach((p) => p.classList.toggle('is-hot', on));
+spots.forEach((el) => {
+  const n = (el as HTMLElement).dataset.spot ?? '';
+  el.addEventListener('pointerenter', () => setHot(n, true));
+  el.addEventListener('pointerleave', () => setHot(n, false));
+  el.addEventListener('click', () => { const on = !el.classList.contains('is-hot'); spots.forEach((p) => p.classList.remove('is-hot')); if (on) setHot(n, true); });
+});
+const geoStats = document.getElementById('geo-stats');
+if (geoStats && !reduced) {
+  const sio = new IntersectionObserver((entries) => {
+    if (!entries.some((e) => e.isIntersecting)) return;
+    geoStats.querySelectorAll<Flow>('number-flow[data-target]').forEach((f, i) => setTimeout(() => f.update(Number(f.dataset.target)), 900 + i * 90));
+    sio.disconnect();
+  }, { threshold: 0.5 });
+  sio.observe(geoStats);
 }

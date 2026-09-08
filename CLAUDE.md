@@ -24,5 +24,5 @@ Single-page Astro 7 + Tailwind 4 static site. Design world = **PIT WALL** (F1 pi
 ## Git
 Feature branches (`feature/`, `fix/`, `chore/`), conventional commits, never commit to main directly.
 
-## Fig. 02 geometry overlay
-`scripts/geom-photo.py` draws the manufacturer's chart over a real side-on photo using only the two axle pixel positions (scale = wheelbase). Regenerate with the command in `projects/cv/photos/README.md` (Petebot) if the photo or size changes; `src/assets/scalpel-photo-overlay.svg` is generated, do not hand-edit. `scripts/geom.py` is the old schematic drawing, kept for reference.
+## Fig. 02 build sheet
+Six numbered points on Luca's Worlds Scalpel photo (`spots` in `Craft.astro`, photo-pixel coords in a 2048×1536 viewBox) + the chart geometry as a `number-flow` strip. Pete rejected dimension lines drawn on the photo (a few px off is visible to a mechanic), so the numbers live in the strip and nothing claims alignment. `scripts/geom-photo.py` (overlay generator) and `scripts/geom.py` (schematic) are kept for reference only.
