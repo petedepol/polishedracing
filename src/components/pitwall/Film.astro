@@ -6,8 +6,8 @@ const frames = [
   { src: '/images/photos/era-2015-gt-900.webp', year: '2015', cap: 'GT Factory Racing · Leogang' },
   { src: '/images/photos/era-2016-trek-900.webp', year: '2016', cap: 'Trek Factory Racing · Leogang · the perfect season' },
   { src: '/images/photos/era-2018-trek-fortwilliam-900.webp', year: '2018', cap: 'Trek Factory Racing · Fort William' },
-  { src: '/images/photos/era-2018-rachel-gold-900.webp', year: '2018', cap: 'Lenzerheide Worlds · Rachel Atherton, World Champion' },
-  { src: '/images/photos/era-2018-kade-rainbow-900.webp', year: '2018', cap: 'Lenzerheide Worlds · Kade Edwards, Junior World Champion' },
+  { src: '/images/photos/era-2018-rachel-gold-900.webp', year: '2018', cap: 'Lenzerheide Worlds · Rachel Atherton, World Champion', pos: '50% 22%' },
+  { src: '/images/photos/era-2018-kade-rainbow-900.webp', year: '2018', cap: 'Lenzerheide Worlds · Kade Edwards, Junior World Champion', pos: '50% 18%' },
   { src: '/images/photos/era-2019-atherton-900.webp', year: '2019', cap: 'Atherton Bikes · Leogang · the crew and the truck' },
   { src: '/images/photos/era-2020-tokyo-900.webp', year: '2020', cap: 'Tokyo · Tom Pidcock, Olympic champion' },
   { src: '/images/photos/era-2022-cfr-900.webp', year: '2022', cap: 'Cannondale Factory Racing · setup with the rider' },
@@ -27,7 +27,7 @@ const frames = [
   <div class="film" tabindex="0" aria-label="Career photographs, scroll horizontally">
     {frames.map(f => (
       <figure class="film-frame">
-        <div class="duotone overflow-hidden"><img src={f.src} width="900" height="600" loading="lazy" decoding="async" alt={`${f.year}: ${f.cap}`} class="block w-full h-auto aspect-[3/2] object-cover" /></div>
+        <div class="duotone overflow-hidden"><img src={f.src} width="900" height="600" loading="lazy" decoding="async" alt={`${f.year}: ${f.cap}`} class="block w-full h-auto aspect-[3/2] object-cover" style={f.pos ? `object-position:${f.pos}` : undefined} /></div>
         <figcaption class="flex gap-3 px-3 py-3 font-mono text-[10px] tracking-[0.12em] uppercase"><span class="text-signal tabular">{f.year}</span><span class="text-ink-faint">{f.cap}</span></figcaption>
       </figure>
     ))}
