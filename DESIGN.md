@@ -207,8 +207,8 @@ A real `<table>` styled as a results board: mono 12px, 10px uppercase column hea
 ### Instrument Cluster (signature)
 Six hairline-divided tiles; a 48–60px mono bold number that ticks to its value on entry (NumberFlow), an 11px label, a 10px note. Tone colours follow the Status Rule.
 
-### Exploded Build Sheet (signature)
-Line-drawn SVG bike whose parts translate apart on load; each part carries a callout with a career fact in signal/gold mono. Never a photo, never 3D.
+### Geometry Chart (signature)
+Dimensioned side-view drawing of the race bike generated from the manufacturer's published geometry (`scripts/geom.py`: head/seat angle, reach, stack, chainstay, BB drop, wheelbase; trail computed from rake). Frame in ink, dimension lines in signal, mono labels. Draws itself in on load (stroke-dashoffset), static under reduced motion, dimension labels hidden below 768px. Never a photo, never 3D, never an invented shape.
 
 ## Do's and Don'ts
 

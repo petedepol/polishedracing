@@ -30,12 +30,13 @@ if (!CSS.supports('animation-timeline: scroll()')) {
 /* ---------- Hero boot: the one authored moment ---------- */
 function boot() {
   const title = document.querySelector<HTMLElement>('.hero-title');
-  const exploded = document.querySelector('.exploded');
   if (!title) return;
-  if (reduced) { title.classList.add('ready'); exploded?.classList.add('is-in'); return; }
+  const geo = document.querySelector<SVGElement>('.geometry');
+  const strokes = geo ? Array.from(geo.querySelectorAll<SVGGeometryElement>('line, circle')) : [];
+  const texts = geo ? Array.from(geo.querySelectorAll('text')) : [];
+  if (reduced) { title.classList.add('ready'); return; }
 
-  const lines = Array.from(document.querySelectorAll<SVGLineElement>('.exploded .callout line'));
-  lines.forEach((l) => { l.setAttribute('pathLength', '1'); l.style.strokeDasharray = '1'; l.style.strokeDashoffset = '1'; });
+  strokes.forEach((el) => { el.setAttribute('pathLength', '1'); el.style.strokeDasharray = '1'; el.style.strokeDashoffset = '1'; });
   const split = SplitText.create(title, { type: 'lines,words,chars', mask: 'lines', linesClass: 'hero-line' });
   title.classList.add('ready');
 
@@ -43,10 +44,9 @@ function boot() {
     .from('.hero-eyebrow', { opacity: 0, duration: .4 }, 0)
     .from(split.chars, { yPercent: 110, duration: .9, stagger: 0.02 }, 0.05)
     .from('.hero-copy > *', { opacity: 0, y: 12, duration: .7, stagger: 0.08 }, 0.45)
-    .add(() => exploded?.classList.add('is-in'), 0.3)
-    .to(lines, { strokeDashoffset: 0, duration: .5, stagger: 0.06, ease: 'power2.out' }, 1.0)
-    .from('.exploded .callout text', { opacity: 0, duration: .4, stagger: 0.04 }, 1.2)
-    .from('.hero-scroll', { opacity: 0, duration: .6 }, 1.6);
+    .to(strokes, { strokeDashoffset: 0, duration: .8, stagger: 0.011, ease: 'power2.out' }, 0.2)
+    .from(texts, { opacity: 0, duration: .5, stagger: 0.03 }, 1.3)
+    .from('.hero-scroll', { opacity: 0, duration: .6 }, 1.8);
 }
 document.fonts.ready.then(boot);
 

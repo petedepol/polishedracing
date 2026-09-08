@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="geometry" viewBox="30 40 1340 855" fill="none" stroke-linecap="round" stroke-linejoin="round" font-family="JetBrains Mono, ui-monospace, monospace" role="img" aria-label="CANNONDALE SCALPEL · SIZE M · 120 / 120 MM · 29 IN: dimensioned side-view geometry drawing of the race bike">
+<style>.frame{stroke:#EDEFF2;stroke-width:3}.frame2{stroke:#EDEFF2;stroke-width:2.2}.wheel{stroke:#AEB6BF;stroke-width:1.6}.rim{stroke:#8B93A0;stroke-width:1}.spoke{stroke:#2A2F37;stroke-width:1}.lefty{stroke:#8B93A0;stroke-width:5}.shock{stroke:#3A4049;stroke-width:9}.dimline{stroke:#C6FF2E;stroke-width:1;stroke-dasharray:3 4;opacity:.9}.dim{fill:#C6FF2E;font-size:13px;letter-spacing:.12em}.sub{fill:#8B93A0;font-size:11.5px;letter-spacing:.14em}.axis{stroke:#767E8B;stroke-width:1;stroke-dasharray:2 5}.ghost{stroke:#3A4049;stroke-width:1}</style>
+<circle class="wheel" cx="321.0" cy="533.1" r="235.8" />
+<circle class="rim" cx="321.0" cy="533.1" r="196.8" />
+<circle class="wheel" cx="321.0" cy="533.1" r="10.2" />
+<line class="spoke" x1="331.2" y1="533.1" x2="517.8" y2="533.1" />
+<line class="spoke" x1="330.4" y1="529.2" x2="502.8" y2="457.8" />
+<line class="spoke" x1="328.2" y1="525.9" x2="460.1" y2="394.0" />
+<line class="spoke" x1="324.9" y1="523.7" x2="396.3" y2="351.3" />
+<line class="spoke" x1="321.0" y1="522.9" x2="321.0" y2="336.3" />
+<line class="spoke" x1="317.1" y1="523.7" x2="245.7" y2="351.3" />
+<line class="spoke" x1="313.7" y1="525.9" x2="181.8" y2="394.0" />
+<line class="spoke" x1="311.5" y1="529.2" x2="139.2" y2="457.8" />
+<line class="spoke" x1="310.7" y1="533.1" x2="124.2" y2="533.1" />
+<line class="spoke" x1="311.5" y1="537.0" x2="139.2" y2="608.4" />
+<line class="spoke" x1="313.7" y1="540.4" x2="181.8" y2="672.3" />
+<line class="spoke" x1="317.1" y1="542.6" x2="245.7" y2="714.9" />
+<line class="spoke" x1="321.0" y1="543.4" x2="321.0" y2="729.9" />
+<line class="spoke" x1="324.9" y1="542.6" x2="396.3" y2="714.9" />
+<line class="spoke" x1="328.2" y1="540.4" x2="460.1" y2="672.3" />
+<line class="spoke" x1="330.4" y1="537.0" x2="502.8" y2="608.4" />
+<circle class="wheel" cx="1076.0" cy="533.1" r="235.8" />
+<circle class="rim" cx="1076.0" cy="533.1" r="196.8" />
+<circle class="wheel" cx="1076.0" cy="533.1" r="10.2" />
+<line class="spoke" x1="1086.3" y1="533.1" x2="1272.8" y2="533.1" />
+<line class="spoke" x1="1085.5" y1="529.2" x2="1257.8" y2="457.8" />
+<line class="spoke" x1="1083.3" y1="525.9" x2="1215.2" y2="394.0" />
+<line class="spoke" x1="1079.9" y1="523.7" x2="1151.3" y2="351.3" />
+<line class="spoke" x1="1076.0" y1="522.9" x2="1076.0" y2="336.3" />
+<line class="spoke" x1="1072.1" y1="523.7" x2="1000.7" y2="351.3" />
+<line class="spoke" x1="1068.8" y1="525.9" x2="936.9" y2="394.0" />
+<line class="spoke" x1="1066.6" y1="529.2" x2="894.2" y2="457.8" />
+<line class="spoke" x1="1065.8" y1="533.1" x2="879.2" y2="533.1" />
+<line class="spoke" x1="1066.6" y1="537.0" x2="894.2" y2="608.4" />
+<line class="spoke" x1="1068.8" y1="540.4" x2="936.9" y2="672.3" />
+<line class="spoke" x1="1072.1" y1="542.6" x2="1000.7" y2="714.9" />
+<line class="spoke" x1="1076.0" y1="543.4" x2="1076.0" y2="729.9" />
+<line class="spoke" x1="1079.9" y1="542.6" x2="1151.3" y2="714.9" />
+<line class="spoke" x1="1083.3" y1="540.4" x2="1215.2" y2="672.3" />
+<line class="spoke" x1="1085.5" y1="537.0" x2="1257.8" y2="608.4" />
+<line class="frame" x1="888.0" y1="179.2" x2="910.9" y2="232.1" />
+<line class="frame" x1="910.9" y1="232.1" x2="600.0" y2="560.0" />
+<line class="frame" x1="888.0" y1="179.2" x2="531.1" y2="293.6" />
+<line class="frame" x1="600.0" y1="560.0" x2="531.1" y2="293.6" />
+<line class="frame2" x1="600.0" y1="560.0" x2="321.0" y2="533.1" />
+<line class="frame2" x1="321.0" y1="533.1" x2="542.3" y2="336.9" />
+<line class="frame2" x1="542.3" y1="336.9" x2="573.0" y2="351.0" />
+<line class="shock" x1="573.0" y1="351.0" x2="809.5" y2="230.0" />
+<line class="frame2" x1="573.0" y1="351.0" x2="809.5" y2="230.0" />
+<circle class="wheel" cx="542.3" cy="336.9" r="3.8" />
+<circle class="wheel" cx="573.0" cy="351.0" r="3.2" />
+<circle class="wheel" cx="809.5" cy="230.0" r="3.2" />
+<circle class="rim" cx="321.0" cy="533.1" r="29.4" />
+<circle class="rim" cx="321.0" cy="533.1" r="21.8" />
+<circle class="ghost" cx="321.0" cy="533.1" r="51.2" />
+<circle class="ghost" cx="1076.0" cy="533.1" r="51.2" />
+<line class="ghost" x1="321.0" y1="503.7" x2="600.0" y2="516.5" />
+<line class="ghost" x1="321.0" y1="562.6" x2="600.0" y2="603.5" />
+<line class="frame2" x1="531.1" y1="293.6" x2="494.2" y2="151.1" />
+<line class="frame" x1="411.0" y1="137.0" x2="564.6" y2="143.4" />
+<line class="frame2" x1="888.0" y1="179.2" x2="910.9" y2="162.8" />
+<line class="frame" x1="898.1" y1="156.4" x2="949.3" y2="166.7" />
+<line class="axis" x1="872.7" y1="144.0" x2="1031.0" y2="556.6" />
+<line class="frame2" x1="918.0" y1="248.5" x2="947.4" y2="235.8" />
+<line class="lefty" x1="947.4" y1="235.8" x2="1076.0" y2="533.1" />
+<circle class="wheel" cx="1076.0" cy="533.1" r="14.1" />
+<circle class="wheel" cx="600.0" cy="560.0" r="43.5" />
+<circle class="wheel" cx="600.0" cy="560.0" r="5.8" />
+<line class="frame2" x1="600.0" y1="560.0" x2="700.1" y2="606.7" />
+<line class="dimline" x1="321.0" y1="788.2" x2="1076.0" y2="788.2" /><line class="dimline" x1="321.0" y1="795.8" x2="321.0" y2="780.5" /><line class="dimline" x1="1076.0" y1="795.8" x2="1076.0" y2="780.5" /><text class="dim" x="698.5" y="782.2" text-anchor="middle">WHEELBASE 1180</text>
+<line class="dimline" x1="600.0" y1="121.6" x2="888.0" y2="121.6" /><line class="dimline" x1="600.0" y1="129.3" x2="600.0" y2="113.9" /><line class="dimline" x1="888.0" y1="129.3" x2="888.0" y2="113.9" /><text class="dim" x="744.0" y="115.6" text-anchor="middle">REACH 450</text>
+<line class="dimline" x1="1054.4" y1="560.0" x2="1054.4" y2="179.2" /><line class="dimline" x1="1062.1" y1="560.0" x2="1046.7" y2="560.0" /><line class="dimline" x1="1062.1" y1="179.2" x2="1046.7" y2="179.2" /><text class="dim" x="1062.4" y="369.6" text-anchor="start">STACK 595</text>
+<line class="dimline" x1="321.0" y1="647.7" x2="600.0" y2="647.7" /><line class="dimline" x1="321.0" y1="640.0" x2="321.0" y2="655.4" /><line class="dimline" x1="600.0" y1="640.0" x2="600.0" y2="655.4" /><text class="dim" x="460.5" y="663.7" text-anchor="middle">CHAINSTAY 438</text>
+<line class="dimline" x1="263.4" y1="533.1" x2="263.4" y2="560.0" /><line class="dimline" x1="255.7" y1="533.1" x2="271.1" y2="533.1" /><line class="dimline" x1="255.7" y1="560.0" x2="271.1" y2="560.0" /><text class="dim" x="255.4" y="546.6" text-anchor="end">BB DROP 42</text>
+<line class="axis" x1="600.0" y1="560.0" x2="600.0" y2="115.2" />
+<line class="axis" x1="888.0" y1="179.2" x2="888.0" y2="115.2" />
+<line class="axis" x1="321.0" y1="533.1" x2="321.0" y2="794.6" />
+<line class="axis" x1="1076.0" y1="533.1" x2="1076.0" y2="794.6" />
+<text class="dim" x="885.3" y="328.1" text-anchor="end">HEAD ANGLE 66.6°</text>
+<text class="sub" x="885.3" y="342.1" text-anchor="end">OFFSET 50 MM · TRAIL 105 MM</text>
+<text class="dim" x="511.9" y="232.8" text-anchor="end">SEAT ANGLE 75.5°</text>
+<text class="sub" x="600.0" y="845.8" text-anchor="middle">CANNONDALE SCALPEL · SIZE M · 120 / 120 MM · 29 IN</text>
+<text class="sub" x="600.0" y="862.8" text-anchor="middle">TEAM LEFTY 2026 · 45 MM OFFSET → TRAIL 110 MM · 190 × 45 SHOCK · 148 × 12 BOOST</text>
+</svg>

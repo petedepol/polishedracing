@@ -6,6 +6,7 @@ p = argparse.ArgumentParser()
 for k, d in [('ha', 66.5), ('sta', 75.5), ('reach', 460), ('stack', 620), ('ht', 110), ('cs', 436), ('bbdrop', 45), ('wb', 1180), ('offset', 45), ('wheel', 370), ('st', 440), ('tyre', 61)]:
     p.add_argument('--' + k, type=float, default=d)
 p.add_argument('--label', default='SCALPEL · SIZE M')
+p.add_argument('--sublabel', default='')
 p.add_argument('--out', default='geom.svg')
 a = p.parse_args()
 r = math.radians
@@ -41,8 +42,8 @@ def dim_h(y, x1, x2, label, above=True):  # horizontal dimension line at height 
 def dim_v(x, y1, y2, label, left=True):
     off = 1 if left else -1
     return (L((x, y1), (x, y2), 'dimline') + L((x - 12*off, y1), (x + 12*off, y1), 'dimline') + L((x - 12*off, y2), (x + 12*off, y2), 'dimline') + T((x, (y1 + y2) / 2), label, 'dim', dx=-8 if left else 8, anchor='end' if left else 'start'))
-out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" fill="none" stroke-linecap="round" stroke-linejoin="round" font-family="JetBrains Mono, ui-monospace, monospace">',
- '<style>.frame{stroke:#EDEFF2;stroke-width:3}.frame2{stroke:#EDEFF2;stroke-width:2.2}.wheel{stroke:#AEB6BF;stroke-width:1.6}.rim{stroke:#8B93A0;stroke-width:1}.spoke{stroke:#2A2F37;stroke-width:1}.lefty{stroke:#8B93A0;stroke-width:5}.shock{stroke:#3A4049;stroke-width:9}.dimline{stroke:#C6FF2E;stroke-width:1;stroke-dasharray:3 4;opacity:.9}.dim{fill:#C6FF2E;font-size:11px;letter-spacing:.12em}.sub{fill:#8B93A0;font-size:10px;letter-spacing:.14em}.axis{stroke:#767E8B;stroke-width:1;stroke-dasharray:2 5}.ghost{stroke:#3A4049;stroke-width:1}</style>']
+out = [f'<svg xmlns="http://www.w3.org/2000/svg" class="geometry" viewBox="30 40 {W-60} {H-45}" fill="none" stroke-linecap="round" stroke-linejoin="round" font-family="JetBrains Mono, ui-monospace, monospace" role="img" aria-label="{a.label}: dimensioned side-view geometry drawing of the race bike">',
+ '<style>.frame{stroke:#EDEFF2;stroke-width:3}.frame2{stroke:#EDEFF2;stroke-width:2.2}.wheel{stroke:#AEB6BF;stroke-width:1.6}.rim{stroke:#8B93A0;stroke-width:1}.spoke{stroke:#2A2F37;stroke-width:1}.lefty{stroke:#8B93A0;stroke-width:5}.shock{stroke:#3A4049;stroke-width:9}.dimline{stroke:#C6FF2E;stroke-width:1;stroke-dasharray:3 4;opacity:.9}.dim{fill:#C6FF2E;font-size:13px;letter-spacing:.12em}.sub{fill:#8B93A0;font-size:11.5px;letter-spacing:.14em}.axis{stroke:#767E8B;stroke-width:1;stroke-dasharray:2 5}.ghost{stroke:#3A4049;stroke-width:1}</style>']
 # wheels + spokes
 for c in (RA, FA):
     out.append(C(c, a.wheel)); out.append(C(c, a.wheel - a.tyre, 'rim')); out.append(C(c, 16, 'wheel'))
@@ -77,7 +78,8 @@ out += [dim_h(a.bbdrop - a.wheel - 30, RA[0], FA[0], f'WHEELBASE {wb_calc:.0f}',
         dim_v(RA[0] - 90, a.bbdrop, 0, f'BB DROP {a.bbdrop:.0f}', left=True)]
 out += [L((0, 0), (0, top - 50), 'axis'), L((a.reach, HTt[1]), (a.reach, top - 50), 'axis'), L((RA[0], a.bbdrop), (RA[0], a.bbdrop - a.wheel - 40), 'axis'), L((FA[0], a.bbdrop), (FA[0], a.bbdrop - a.wheel - 40), 'axis')]
 out += [T((HTb[0] - 40, HTb[1] - 150), f'HEAD ANGLE {a.ha:.1f}°', 'dim', anchor='end'), T((HTb[0] - 40, HTb[1] - 150), f'OFFSET {a.offset:.0f} MM · TRAIL {trail:.0f} MM', 'sub', dy=14, anchor='end')]
-out += [T((STt[0] - 30, STt[1] + 95), f'SEAT ANGLE {a.sta:.1f}°', 'dim', anchor='end'), T((0, -a.wheel - 100), a.label, 'sub', anchor='middle')]
+out += [T((STt[0] - 30, STt[1] + 95), f'SEAT ANGLE {a.sta:.1f}°', 'dim', anchor='end'), T((0, -a.wheel - 78), a.label, 'sub', anchor='middle')]
+if a.sublabel: out.append(T((0, -a.wheel - 78), a.sublabel, 'sub', dy=17, anchor='middle'))
 out.append('</svg>')
 open(a.out, 'w').write('\n'.join(out))
 print(json.dumps({'wheelbase_calc': round(wb_calc), 'trail': round(trail, 1), 'front_axle': [round(v) for v in FA], 'rear_axle': [round(v) for v in RA], 'ht_bottom': [round(v) for v in HTb]}))
