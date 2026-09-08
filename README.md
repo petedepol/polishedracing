@@ -41,3 +41,12 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Deploy + domain (8 Sep 2026)
+
+- Hosting: Vercel project `polishedracing` (team petes-projects). `vercel deploy` = preview, `vercel deploy --prod` = production. Public alias: https://polishedracing.vercel.app
+- **polishedracing.co.uk is attached to the project but DNS still points at Wix** (nameservers ns4/ns5.wixdns.net, Wix serves a "connect your domain" error). To go live WITHOUT touching email (MX for info@ lives in the current DNS), add these two records in the Wix DNS panel and leave everything else alone:
+  - `A     @    76.76.21.21`
+  - `CNAME www  cname.vercel-dns.com`
+  Then `vercel domains verify polishedracing.co.uk`. Do NOT switch nameservers to Vercel unless the MX records are recreated there first.
+- Facts, design system and rules: `PRODUCT.md`, `DESIGN.md`, `CLAUDE.md`. Verification recipe: `docs/verify.md`.
