@@ -11,7 +11,7 @@ export const riders = [
   { name: 'Mona Mitterwallner', line: 'Marathon World Champion ’23' },
   { name: 'Henrique Avancini', line: 'CFR 2022' },
   { name: 'Kade Edwards', line: 'Junior World Champion ’18' },
-  { name: 'Mille Johnset', line: 'Junior Worlds silver ’19' },
+  { name: 'Mille Johnset', line: 'Junior Worlds bronze ’18 · silver ’19' },
   { name: 'Charlie Hatton', line: 'Trek FR / Atherton Bikes 2018–19' },
   { name: 'Marc Beaumont', line: 'GT Factory Racing 2012–14' },
 ] as const;

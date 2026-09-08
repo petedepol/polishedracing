@@ -5,5 +5,5 @@ export const careerStats = [
   { label: 'WC top finishes', value: 134, note: 'top-5 to 2024 · top-3 from 2025', tone: 'signal' },
   { label: 'Seasons at WC level', value: 20, note: '2007–2026', tone: 'ink' },
   { label: 'Pro programmes', value: 8, note: 'Mojo → CFR', tone: 'ink' },
-  { label: 'Jr / U23 Worlds medals', value: 5, note: 'Edwards · Johnset · Aldridge · Punchard', tone: 'ink' },
+  { label: 'Jr / U23 Worlds medals', value: 6, note: 'Edwards · Johnset ×2 · Aldridge · Punchard ×2', tone: 'ink' },
 ] as const;
