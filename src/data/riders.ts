@@ -14,4 +14,5 @@ export const riders = [
   { name: 'Mille Johnset', line: 'Junior Worlds bronze ’18 · silver ’19' },
   { name: 'Charlie Hatton', line: 'Trek FR / Atherton Bikes 2018–19' },
   { name: 'Marc Beaumont', line: 'GT Factory Racing 2012–14' },
+  { name: 'Graeme Mudd', line: 'Trek Factory Racing 2017' },
 ] as const;
