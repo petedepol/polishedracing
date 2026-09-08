@@ -34,4 +34,4 @@ export const development: Row[] = [
   { pos: 'P3', rider: 'Cole Punchard', event: 'U23 World Championships · Crans-Montana', disc: 'XCC', result: 'BRONZE', medal: 'BRONZE', year: '2025', role: 'CFR · his mechanic' },
 ];
 
-export const countingRule = 'COUNTING RULE: UCI WORLD CUP ONLY · TOP-5 THROUGH 2024 · TOP-3 FROM 2025 · 100 OF 126 ARE ROOTS & RAIN-VERIFIED DH TOP-5s 2011–19 · RESULTS BELONG TO THE RIDERS — MY ROLE IS STATED PER ROW';
+export const countingRule = 'COUNTING RULE: UCI WORLD CUP ONLY · TOP-5 THROUGH 2024 · TOP-3 FROM 2025 · 100 OF 134 ARE ROOTS & RAIN-VERIFIED DH TOP-5s 2011–19 · RESULTS BELONG TO THE RIDERS — MY ROLE IS STATED PER ROW';

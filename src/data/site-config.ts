@@ -2,7 +2,7 @@ export const siteConfig = {
   name: 'Pete Michaliszyn',
   nickname: 'Polish Pete',
   title: 'Pete Michaliszyn — World Cup MTB Head Mechanic',
-  description: 'World Cup MTB head mechanic at Cannondale Factory Racing. Two Olympic gold campaigns, fourteen elite World Championship medals, 126 World Cup top finishes across twenty seasons. Available for the 2027 season.',
+  description: 'World Cup MTB head mechanic at Cannondale Factory Racing. Two Olympic gold campaigns, fourteen elite World Championship medals, 134 World Cup top finishes across twenty seasons. Available for the 2027 season.',
   url: 'https://polishedracing.co.uk',
   email: 'info@polishedracing.co.uk',
   phone: '+48 571 504 705',

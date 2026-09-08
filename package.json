@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@fontsource/bebas-neue": "^5.1.1",
+    "playwright": "^1.63.0",
     "tailwindcss": "^4.3.3"
   }
 }
