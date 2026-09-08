@@ -11,6 +11,9 @@ import { siteConfig } from '../../data/site-config';
       <span id="hud-clock" class="font-mono text-[11px] tracking-[0.15em] text-ink-faint tabular">OUT OF CONTRACT 31 DEC 2026</span>
       {siteConfig.nav.map(n => <a href={n.href} class="label hover:text-ink transition-colors">{n.label}</a>)}
     </nav>
-    <a href="#contact" class="btn-signal py-2! px-4!">[ HIRE ]</a>
+    <div class="flex items-center gap-px">
+      <a href={siteConfig.buildSheet} class="btn-ghost py-2! px-4! border-carbon-line" download title="Download the one-page CV">CV ↓</a>
+      <a href="#contact" class="btn-signal py-2! px-4!">[ HIRE ]</a>
+    </div>
   </div>
 </header>

@@ -18,6 +18,7 @@ import { siteConfig } from '../../data/site-config';
       <div class="flex flex-wrap items-center gap-4 mt-8">
         <span class="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-ink border border-carbon-line px-3 py-2"><span class="dot-live"></span>{siteConfig.status}</span>
         <a href={`mailto:${siteConfig.email}`} class="btn-signal">Let's talk →</a>
+        <a href={siteConfig.buildSheet} class="btn-ghost" download>Build sheet · PDF ↓</a>
       </div>
       <p class="font-mono text-[11px] text-ink-faint mt-5 flex flex-wrap gap-x-3 gap-y-1"><a href={`mailto:${siteConfig.email}`} class="py-2 hover:text-ink">{siteConfig.email}</a><span class="py-2 hidden md:inline">·</span><a href={siteConfig.whatsapp} class="py-2 hover:text-ink">{siteConfig.phone} · WhatsApp</a></p>
       </div>
