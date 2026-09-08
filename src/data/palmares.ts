@@ -12,12 +12,18 @@ export const palmares: Row[] = [
   { pos: 'P1', rider: 'Gee Atherton', event: 'World Championships · Hafjell', disc: 'DH', result: 'GOLD', medal: 'GOLD', year: '2014', role: 'GT FR · head mechanic' },
   { pos: 'P1', rider: 'Rachel Atherton', event: 'World Championships · Pietermaritzburg', disc: 'DH', result: 'GOLD', medal: 'GOLD', year: '2013', role: 'GT FR · head mechanic' },
   { pos: 'P1', rider: 'Mona Mitterwallner', event: 'Marathon World Championships', disc: 'XCM', result: 'GOLD', medal: 'GOLD', year: '2023', role: 'CFR · mechanic' },
-  { pos: 'P1', rider: 'Luca Martin', event: 'World Cup overall · leader', disc: 'XCO', result: 'SERIES LEADER', medal: 'LEADER', year: '2026', role: 'CFR · head mechanic (crew lead)' },
-  { pos: 'P1', rider: 'Charlie Aldridge', event: 'World Cup · Mont-Sainte-Anne XCO + XCC', disc: 'XCO/XCC', result: 'FIRST ELITE WC WIN · DOUBLE', medal: 'WIN', year: '2025', role: 'CFR · head mechanic (crew lead)' },
+  { pos: 'P1', rider: 'Luca Martin', event: 'World Cup · La Thuile', disc: 'XCO', result: 'WIN · +1:07', medal: 'WIN', year: '2026', role: 'CFR · head mechanic (crew lead)' },
+  { pos: 'P1', rider: 'Luca Martin', event: 'World Cup · Lenzerheide', disc: 'XCO', result: 'WIN', medal: 'WIN', year: '2026', role: 'CFR · head mechanic (crew lead)' },
+  { pos: 'P1', rider: 'Luca Martin', event: 'World Cup overall · leader into the final rounds', disc: 'XCO', result: 'SERIES LEADER', medal: 'LEADER', year: '2026', role: 'CFR · head mechanic (crew lead)' },
+  { pos: 'P1', rider: 'Charlie Aldridge', event: 'World Cup · Les Gets XCC + Mont-Sainte-Anne XCO', disc: 'XCC/XCO', result: 'FIRST ELITE WC WINS', medal: 'WIN', year: '2025', role: 'CFR · head mechanic (crew lead)' },
+  { pos: 'P2', rider: 'Charlie Aldridge', event: 'World Championships · Val di Sole', disc: 'XCO', result: 'SILVER', medal: 'SILVER', year: '2026', role: 'CFR · head mechanic (crew lead)' },
+  { pos: 'P2', rider: 'Charlie Aldridge', event: 'World Championships · Val di Sole', disc: 'XCC', result: 'SILVER', medal: 'SILVER', year: '2026', role: 'CFR · head mechanic (crew lead)' },
   { pos: 'P2', rider: 'Rachel Atherton', event: 'World Championships · Hafjell', disc: 'DH', result: 'SILVER', medal: 'SILVER', year: '2014', role: 'GT FR · head mechanic' },
   { pos: 'P2', rider: 'Gee Atherton', event: 'World Championships · Leogang', disc: 'DH', result: 'SILVER', medal: 'SILVER', year: '2012', role: 'GT FR · head mechanic' },
   { pos: 'P2', rider: 'Rachel Atherton', event: 'World Championships · Champéry', disc: 'DH', result: 'SILVER', medal: 'SILVER', year: '2011', role: 'Animal Commencal · head mechanic' },
   { pos: 'P2', rider: 'Pauline Ferrand-Prévot', event: 'World Championships · Pal Arinsal', disc: 'XCC', result: 'SILVER', medal: 'SILVER', year: '2024', role: 'INEOS · her mechanic' },
+  { pos: 'P3', rider: 'Cole Punchard', event: 'World Championships · Val di Sole · first elite season', disc: 'XCO', result: 'BRONZE', medal: 'BRONZE', year: '2026', role: 'CFR · his mechanic' },
+  { pos: 'P3', rider: 'Luca Martin', event: 'World Championships · Val di Sole', disc: 'XCC', result: 'BRONZE', medal: 'BRONZE', year: '2026', role: 'CFR · head mechanic (crew lead)' },
 ];
 
 export const development: Row[] = [
