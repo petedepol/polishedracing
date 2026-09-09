@@ -1,14 +1,36 @@
 ---
+// About — Pete's words (WhatsApp answers, 9 Sep 2026), tidied only. Facts per CV. Photo = placeholder until Pete picks one.
+const traits = [
+  { k: 'Straight', v: 'No bull. Sometimes too honest, and I’d rather that than the alternative.' },
+  { k: 'Hard working', v: 'Twenty seasons, eight programmes, two disciplines. Setup day and take-down are the grind and I still like them.' },
+  { k: 'Problem solver first', v: 'Mechanic second. Find the problem, fix it, make it better for the next round.' },
+  { k: 'Easy going', v: 'In the truck, in the pits, with the crew. Serious about the bike.' },
+  { k: 'Loyal and fair', v: 'Nine seasons with one family. The mechanics I hired got their first factory jobs with me and went on to good careers.' },
+];
 ---
-<section class="py-24 blueprint-grid border-y border-carbon-line">
-  <div class="max-w-3xl mx-auto px-5 md:px-8">
-    <p class="section-no mb-6">[11] ORIGIN · FIG 01 — BIELAWA, LOWER SILESIA</p>
-    <figure class="mb-10 reveal"><div class="duotone hairline overflow-hidden"><img src="/images/photos/origin-truck-1400.webp" width="1400" height="933" loading="lazy" decoding="async" alt="Pete sitting against the race truck wheel in work gloves and sunglasses, race week 2019" class="block w-full h-auto" /></div><figcaption class="font-mono text-[10px] tracking-[0.15em] uppercase text-ink-faint mt-3">2019 · Atherton Bikes · race week, between runs</figcaption></figure>
-    <div class="font-serif text-ink text-xl md:text-2xl leading-relaxed space-y-6 reveal">
-      <p>I raced before I wrenched. Junior road for Poland, then the UK, then downhill. I know what a bad setup feels like from the saddle.</p>
-      <p>Home is Bielawa, a textile town under the Owl Mountains. My grandfather Józef built radios at the Diora factory in the next town, and I grew up on a smuggled ZX Spectrum. That habit never left: the apps my team runs on for race settings, jig setups and race-plan timing, I wrote myself. No formal training. A mechanic who wanted better tools than a spreadsheet.</p>
-      <p>First World Cup: Maribor 2007, with Mojo Suspension. Twenty seasons later I’m still in the pits, and everyone there calls me Polish Pete.</p>
+<section id="about" class="py-24 blueprint-grid border-y border-carbon-line scroll-mt-12">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <p class="section-no mb-3">[05] ORIGIN · WHO YOU’D BE HIRING</p>
+    <h2 class="font-display text-display-md text-ink mb-10 reveal">I WASN’T GOOD ENOUGH TO RACE.</h2>
+    <div class="grid lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] gap-10 lg:gap-16 items-start">
+      <div class="font-serif text-ink text-xl md:text-2xl leading-relaxed space-y-6 reveal">
+        <p>Junior road for Poland, late nineties, a small club with staff who didn’t have a clue. I loved it. I also wasn’t good enough, and that’s fine. I know what it feels like from the saddle when the bike is wrong and you can’t say why.</p>
+        <p>I quit, did three years of a five-year engineering degree and moved to the UK. The engineering never left. It’s how I look at a bike, and it’s why I ended up writing the software my team runs on.</p>
+        <p>Mojo Suspension put me in a World Cup pit at Maribor in 2007, Dan Stanbridge managing, me the only mechanic. In 2011 the Athertons took me on: nine seasons, most of them as Gee’s mechanic and head mechanic for the whole programme, through Commencal, GT, Trek and their own bikes. Then two Olympic campaigns. Then cross-country with Cannondale.</p>
+        <p>Most of the riders on this page I oversaw as head mechanic; the results are theirs and the crews’. The ones I wrenched for myself: Rachel and Dan in 2011, Gee for eight seasons, Taylor as a junior, Tom in Tokyo, Mona and Henrique at Cannondale, Charlie in his U23 year, Pauline in 2024, Cole now. The role column on every result says which.</p>
+        <p>Being part of a team gives me the same feeling racing did. There are no really bad days. There are great days, and winning is the best of them.</p>
+        <p>When a rider says the bike feels wrong I get to the bottom of it logically. Every issue gets taken seriously, the rider gets options, the staff get pulled in when it matters. Then it goes in the database so we never argue about it twice.</p>
+        <p>Home is Bielawa, a textile town under the Owl Mountains. My grandfather Józef built radios at the Diora factory in the next town, and I grew up on a smuggled ZX Spectrum. My wife Lucy and I are building a house there. Between races I build apps. The team runs on them now.</p>
+      </div>
+      <div class="space-y-px reveal">
+        <figure class="mb-6"><div class="duotone hairline overflow-hidden"><img src="/images/photos/origin-truck-1400.webp" width="1400" height="933" loading="lazy" decoding="async" alt="Pete sitting against the race truck wheel in work gloves and sunglasses, race week 2019" class="block w-full h-auto" /></div><figcaption class="font-mono text-[10px] tracking-[0.15em] uppercase text-ink-faint mt-3">2019 · Atherton Bikes · race week, between runs</figcaption></figure>
+        <p class="label text-signal mb-3">What I’m like to work with</p>
+        <dl class="hairline bg-carbon-raised divide-y divide-carbon-line">
+          {traits.map(t => (
+            <div class="px-5 py-4 grid grid-cols-[9rem_1fr] gap-4"><dt class="font-mono text-[11px] tracking-[0.12em] uppercase text-ink pt-0.5">{t.k}</dt><dd class="font-body text-sm text-ink-dim leading-snug">{t.v}</dd></div>
+          ))}
+        </dl>
+      </div>
     </div>
-    <p class="font-mono text-[10px] text-ink-faint mt-8 tracking-[0.15em]">FIG 01 · ZX SPECTRUM → COMMODORE → AMIGA → THE PIT WALL</p>
   </div>
 </section>

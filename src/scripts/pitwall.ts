@@ -104,24 +104,33 @@ if (cluster && !reduced) {
   cio.observe(cluster);
 }
 
-/* ---------- Timing screen: filter the feed like a results board ---------- */
+/* ---------- Timing screen: filter the feed like a results board; eight rows until asked for more ---------- */
 const group = document.querySelector<HTMLElement>('[data-filter-group]');
 if (group) {
   const rows = Array.from(document.querySelectorAll<HTMLElement>('#palmares .feed-row'));
+  const total = rows.filter((r) => r.tagName === 'TR').length;
   const count = document.getElementById('feed-count');
-  group.querySelectorAll<HTMLButtonElement>('button[data-filter]').forEach((btn) => btn.addEventListener('click', () => {
-    const f = btn.dataset.filter!;
-    group.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
-    let n = 0;
+  const toggle = document.querySelector<HTMLButtonElement>('[data-feed-toggle]');
+  const SHOW = 8; let filter = 'all'; let expanded = false;
+  const apply = () => {
+    let seenTr = 0, seenDiv = 0, shown = 0;
     rows.forEach((row) => {
-      const show = f === 'all' || row.dataset.kind === f || row.dataset.disc === f;
-      row.hidden = !show; if (show) row.classList.add('is-in');
-      if (show && row.tagName === 'TR') n++;
+      const match = filter === 'all' || row.dataset.kind === filter || row.dataset.disc === filter;
+      const isTr = row.tagName === 'TR';
+      const idx = match ? (isTr ? seenTr++ : seenDiv++) : -1;
+      const show = match && (expanded || filter !== 'all' || idx < SHOW);
+      row.hidden = !show; if (show) { row.classList.add('is-in'); if (isTr) shown++; }
     });
-    if (count) count.textContent = String(n);
+    if (count) count.textContent = String(shown);
+    if (toggle) { toggle.hidden = filter !== 'all'; toggle.textContent = expanded ? 'Show fewer ↑' : `Show all ${total} rows ↓`; toggle.setAttribute('aria-expanded', String(expanded)); }
+  };
+  group.querySelectorAll<HTMLButtonElement>('button[data-filter]').forEach((btn) => btn.addEventListener('click', () => {
+    filter = btn.dataset.filter!;
+    group.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+    apply();
   }));
+  toggle?.addEventListener('click', () => { expanded = !expanded; apply(); if (!expanded) document.getElementById('palmares')?.scrollIntoView({ block: 'start' }); });
 }
-
 
 /* ---------- Film strip: mouse wheel goes sideways, drag to scroll, arrow buttons ---------- */
 const film = document.querySelector<HTMLElement>('.film');
