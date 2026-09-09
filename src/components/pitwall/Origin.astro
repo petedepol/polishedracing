@@ -7,6 +7,11 @@ const traits = [
   { k: 'Easy going', v: 'In the truck, in the pits, with the crew. Serious about the bike.' },
   { k: 'Loyal and fair', v: 'Nine seasons with one family. The mechanics I hired got their first factory jobs with me and went on to good careers.' },
 ];
+const week = [
+  { d: 'Sun–Mon', t: 'Fly in. Pack the truck at the service course.' }, { d: 'Mon', t: 'Drive the truck to the race.' }, { d: 'Tue', t: 'Pit setup.' },
+  { d: 'Wed', t: 'Bike rebuilds.' }, { d: 'Thu', t: 'Practice.' }, { d: 'Fri', t: 'Short track.' }, { d: 'Sat', t: 'Practice.' },
+  { d: 'Sun', t: 'Race. Pack down. Two to four hours to the next one, or back to the service course.' },
+];
 ---
 <section id="about" class="py-24 blueprint-grid border-y border-carbon-line scroll-mt-12">
   <div class="max-w-7xl mx-auto px-5 md:px-8">
@@ -15,12 +20,12 @@ const traits = [
     <div class="grid lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] gap-10 lg:gap-16 items-start">
       <div class="font-serif text-ink text-xl md:text-2xl leading-relaxed space-y-6 reveal">
         <p>Junior road for Poland, late nineties, a small club with staff who didn’t have a clue. I loved it. I also wasn’t good enough, and that’s fine. I know what it feels like from the saddle when the bike is wrong and you can’t say why.</p>
-        <p>I quit, did three years of a five-year engineering degree and moved to the UK. The engineering never left. It’s how I look at a bike, and it’s why I ended up writing the software my team runs on.</p>
-        <p>Mojo Suspension put me in a World Cup pit at Maribor in 2007, Dan Stanbridge managing, me the only mechanic. In 2011 the Athertons took me on: nine seasons, most of them as Gee’s mechanic and head mechanic for the whole programme, through Commencal, GT, Trek and their own bikes. Then two Olympic campaigns. Then cross-country with Cannondale.</p>
+        <p>I quit, did three years of a five-year engineering degree, and spent the summers of 2002 and 2003 labouring in England, paid in cash and once in a bottle of vodka. Moved for good in 2004: London, then Southend, then Westcliff-on-Sea. Universal Cycles took me on unloading bike containers. By luck I got into the workshop, then quality control.</p>
+        <p>Then Risca, in Wales, for Mojo, the Fox importer. Mojo put me in a World Cup pit at Maribor in 2007, Dan Stanbridge managing, me the only mechanic and the only foreigner in the building, which is where Polish Pete comes from. Working the Mojo race programme I met the Athertons. Dan Brown offered me the job, I moved to Powys, and the rest is history: nine seasons, most of them as Gee’s mechanic and head mechanic for the whole programme, through Commencal, GT, Trek and their own bikes. Then two Olympic campaigns.</p>
+        <p>By 2021 I felt I’d done everything there was to do in downhill, and honestly I needed a change. Cross-country gave me the tech zone: a wheel change with the race going past at full speed, bottles out, riders zooming by a metre away. It’s fun.</p>
         <p>Most of the riders on this page I oversaw as head mechanic; the results are theirs and the crews’. The ones I wrenched for myself: Rachel and Dan in 2011, Gee for eight seasons, Taylor as a junior, Tom in Tokyo, Mona and Henrique at Cannondale, Charlie in his U23 year, Pauline in 2024, Cole now. The role column on every result says which.</p>
-        <p>Being part of a team gives me the same feeling racing did. There are no really bad days. There are great days, and winning is the best of them.</p>
-        <p>When a rider says the bike feels wrong I get to the bottom of it logically. Every issue gets taken seriously, the rider gets options, the staff get pulled in when it matters. Then it goes in the database so we never argue about it twice.</p>
-        <p>Home is Bielawa, a textile town under the Owl Mountains. My grandfather Józef built radios at the Diora factory in the next town, and I grew up on a smuggled ZX Spectrum. My wife Lucy and I are building a house there. Between races I build apps. The team runs on them now.</p>
+        <p>Being part of a team gives me the same feeling racing did. There are no really bad days. There are great days, and winning is the best of them. When a rider says the bike feels wrong I get to the bottom of it logically. Every issue gets taken seriously, the rider gets options, the staff get pulled in when it matters. Then it goes in the database so we never argue about it twice.</p>
+        <p>Home is Bielawa, a textile town under the Owl Mountains. My grandfather Józef built radios at the Diora factory in the next town, and I grew up on a smuggled ZX Spectrum. A week with no race is keeping an eye on the house builders, trying to find time to ride, family, coding. My wife Lucy will tell you I’m a geek who plays too many computer games. Fair.</p>
       </div>
       <div class="space-y-px reveal">
         <figure class="mb-6"><div class="duotone hairline overflow-hidden"><img src="/images/photos/origin-truck-1400.webp" width="1400" height="933" loading="lazy" decoding="async" alt="Pete sitting against the race truck wheel in work gloves and sunglasses, race week 2019" class="block w-full h-auto" /></div><figcaption class="font-mono text-[10px] tracking-[0.15em] uppercase text-ink-faint mt-3">2019 · Atherton Bikes · race week, between runs</figcaption></figure>
@@ -30,6 +35,12 @@ const traits = [
             <div class="px-5 py-4 grid grid-cols-[9rem_1fr] gap-4"><dt class="font-mono text-[11px] tracking-[0.12em] uppercase text-ink pt-0.5">{t.k}</dt><dd class="font-body text-sm text-ink-dim leading-snug">{t.v}</dd></div>
           ))}
         </dl>
+        <p class="label text-signal mt-8 mb-3">A race week</p>
+        <ol class="hairline bg-carbon-raised divide-y divide-carbon-line">
+          {week.map(w => (
+            <li class="px-5 py-3 grid grid-cols-[5rem_1fr] gap-4"><span class="font-mono text-[11px] tracking-[0.12em] uppercase text-signal tabular">{w.d}</span><span class="font-body text-sm text-ink-dim leading-snug">{w.t}</span></li>
+          ))}
+        </ol>
       </div>
     </div>
   </div>
